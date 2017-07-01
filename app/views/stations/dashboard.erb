@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Station Dashboard World!</title>
+  </head>
+  <body>
+    <h1>Stations Info </h1>
+    <body>
+      <a href="/stations">Go Back</a>
+      <p>Total Count of Stations: <%= Station.count %></p>
+      <p>Average Bikes Available Per Station: <%= @station.avg_bikes_per_station %></p>
+      <p>Most Bikes Available at a Station: <%= @station.most_bikes %></p>
+      <p>Station(s) where the most bikes are available: </p>
+        <% @station.stations_with_most_bikes.each do |station| %>
+          <h5><%= station.name%>, <%= station.city.name%> </h5>
+          <% end %>
+      <p>Fewest bikes available at a station: <%= @station.least_bikes %></p>
+      <p>Station(s) where the fewest bikes are available:</p>
+        <% @station.stations_with_least_bikes.each do |station| %>
+          <h5><%= station.name%>, <%= station.city.name%> </h5>
+          <% end %>
+      <p>Most recently installed station:</p>
+        <% @station.newest_station.each do |station| %>
+        <h5><%= station.name %>, <%= station.city.name %> </h5>
+        <% end %>
+      <p>Oldest station:</p>
+        <% @station.oldest_station.each do |station| %>
+        <h5><%= station.name %>, <%= station.city.name %> </h5>
+        <% end %>
+    </body>
+  </html>
