@@ -34,6 +34,6 @@ class Seeds
 end
 
 a = Seeds.new
-a.seed_full_database
+a.seed_stations_with_city_id
 
 puts "station database seeded"
