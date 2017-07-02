@@ -1,3 +1,5 @@
+require 'will_paginate'
+require 'will_paginate/active_record'
 
 class Trip < ActiveRecord::Base
 
@@ -5,4 +7,7 @@ class Trip < ActiveRecord::Base
     Trip.order(start_date: :desc).in_batches(of: 30)
   end
 
+  def self.per_page
+    30
+  end
 end

@@ -1,6 +1,3 @@
-require 'will_paginate'
-require 'will_paginate/active_record'
-
 class Station < ActiveRecord::Base
   belongs_to :city
   validates :name, presence: true
@@ -47,7 +44,4 @@ class Station < ActiveRecord::Base
     (Station.where(installation_date: oldest_station_date))
   end
 
-   def self.per_page
-     30
-   end
 end

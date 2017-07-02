@@ -1,3 +1,13 @@
-
-
-<p>Trips</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <%@trips.each do |trip|%>
+    <p><%= trip.start_station %></p>
+    <% end %>
+    <p><%= will_paginate @pages %></p>
+  </body>
+</html>
