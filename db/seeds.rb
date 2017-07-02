@@ -1,6 +1,7 @@
 require './db/tbl/seed_station.rb'
 require './db/tbl/seed_city.rb'
 require './db/tbl/update_city_station.rb'
+require './db/tbl/seed_trip.rb'
 require 'CSV'
 require 'Date'
 require 'active_support/core_ext'
@@ -31,9 +32,14 @@ class Seeds
   def seed_stations_with_city_id
     UpdateCityIdStation.update_city_id_in_stations
   end
+
+  def seed_table_trips
+    SeedTrip.seed_trips_table
+  end
 end
 
 a = Seeds.new
+a.seed_table_trips
 
 
 puts "station database seeded"
