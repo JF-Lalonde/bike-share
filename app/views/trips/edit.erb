@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bike Share World!</title>
+  </head>
+  <body>
+    <a href="/trips">Go Back</a>
+    <form action="/trips/<%= @trip.id %>" method="post">
+      <input type="hidden" name="_method" value="PUT" />
+      <input name='trip[duration]' value="<%= @trip.duration %>"/><br/>
+      <input name='trip[start_date]' value="<%= @trip.start_date %>"</input><br/>
+      <input name='trip[start_station]' value="<%= @trip.start_station %>"</input><br/>
+      <input name='trip[end_date]' value="<%= @trip.end_date %>"</input><br/>
+      <input name='trip[end_station]' value="<%= @trip.end_station %>"</input><br/>
+      <input name='trip[bike_id]' value="<%= @trip.bike_id %>"</input><br/>
+      <input name='trip[subscription_type]' value="<%= @trip.subscription_type %>"</input><br/>
+      <input name='trip[zip_code]' value="<%= @trip.zip_code %>"</input><br/>
+      <input type='submit'/>
+    </form>
+  </body>
+</html>

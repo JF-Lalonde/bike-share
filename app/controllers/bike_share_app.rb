@@ -1,8 +1,14 @@
+require 'will_paginate'
+require 'will_paginate/active_record'
 
 class BikeShareApp < Sinatra::Base
 
   get "/" do
     erb :dashboard
+  end
+
+  configure do
+    register WillPaginate::Sinatra
   end
 
   get "/stations" do
@@ -46,7 +52,9 @@ class BikeShareApp < Sinatra::Base
   end
 
   get "/trips" do
-    @trips = Trip.all
+    Trip.connection
+    @pages = Trip.paginate(page: params[:page])
+    @trips = Trip.order('installation_date DESC').page(params[:page])
     erb :"trips/index"
   end
 
@@ -60,22 +68,22 @@ class BikeShareApp < Sinatra::Base
     redirect "/trips"
   end
 
-  get "/trip/:id" do
+  get "/trips/:id" do
     @trip = Trip.find(params[:id].to_i)
     erb :"trip/show"
   end
 
-  get "/trip/:id/edit" do
+  get "/trips/:id/edit" do
     @trip = Trip.find(params[:id].to_i)
     erb :"trip/edit"
   end
 
-  put "trip/:id" do |id|
+  put "trips/:id" do |id|
     Trip.update(id.to_i, params[:trip])
     redirect "/trip/#{id}"
   end
 
-  delete "trip/:id" do
+  delete "trips/:id" do
     Trip.destroy(params[:id].to_i)
     redirect "/trips"
   end
