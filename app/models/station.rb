@@ -47,5 +47,7 @@ class Station < ActiveRecord::Base
     (Station.where(installation_date: oldest_station_date))
   end
 
-  self.per_page = 10
+   def self.per_page
+     30
+   end
 end
