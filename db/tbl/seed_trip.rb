@@ -11,7 +11,7 @@ class SeedTrip
   def self.seed_trips_table
     CSV.foreach("./db/csv/trip.csv", headers: true) do |row|
       row.delete("id")
-      clean_zipcode(row[:zip_code])
+      row[:zip_code] = clean_zipcode(row[:zip_code])
       start_date = row["start_date"]
       end_date = row["end_date"]
       row["start_date"] = Date.strptime(start_date, "%m/%d/%Y")
