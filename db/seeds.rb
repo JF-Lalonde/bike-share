@@ -35,4 +35,5 @@ end
 
 a = Seeds.new
 
+
 puts "station database seeded"
