@@ -54,7 +54,7 @@
     padding: 0;
       }
 
-  h1 {
+    #section2, #section3 {
     color: #CD4B39;
     text-align: center;
     font-size: 75px;
@@ -62,7 +62,7 @@
     margin-bottom: 330px;
     }
 
-  h2 {
+  #section2 h2 {
     color: #2D3BB5;
     font-family: futura;
     font-size: 75px;
@@ -72,6 +72,14 @@
     margin-top: -1px;
   }
 
+  #section1 h1 {
+    color: #CD4B39;
+    text-align: center;
+    font-size: 75px;
+    font-family: Futura;
+    margin-bottom: 330px;
+
+  }
   #section2 {
   background-color: #518CD8;
     }
@@ -79,7 +87,13 @@
   background-color: #D85161;
     }
   #section4 {
-    background-color: #6951D8;
+    background-image: url("https://kennylee.neocities.org/Ubuntu-15.04-Default-Wallpaper-Suru-Grey-White-Color.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
+    image-rendering: -webkit-optimize-contrast;
+    margin-top: 0;
+    padding: 0;
     }
 
   .section {
@@ -91,10 +105,115 @@
     }
 
 
-  hr {
+    .section1 hr {
     align-self: center;
     border-color: #E54549;
     margin-left: 500px;
     margin-right: 500px;
     margin-bottom: 295px;
+    }
+
+    #section4 hr {
+      margin-bottom: 30px;
+    }
+
+    #section4 body {
+      font-family: sans-serif;
+      font-size: .9rem;
+    }
+    #section4 h1 {
+      text-align: center;
+      font-family: helvetica;
+      font-size: 60px;
+      margin-top: -10px;
+      color: black;
+    }
+
+    #section4 p {
+      font-family: futura;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    #section4 h2 {
+      text-align: center;
+      font-family: futura;
+      font-size: 20px;
+    }
+
+    #section4 h4 {
+      text-align: center;
+      font-family: helvetica;
+      margin-top: -30px;
+      font-size: 20px;
+
+    }
+
+    #section4 a img {
+        width: 25px;
+        height: 25px;
+        display: inline-block;
+        margin: -100px;
+        margin-left: 110px;
+        margin-bottom: 8px;
+      }
+    }
+
+    /* 1 column: 320px */
+    .autowide {
+      margin: 0 auto;
+    	width: 97%;
+    }
+    .autowide img {
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+      margin-left: 60px;
+      margin-top: 19px;
+    }
+    .autowide .module {
+      border-radius: .80rem;
+      margin-bottom: 1rem;
+      background-color: #D8D9DA;
+    }
+    .autowide .module p {
+      padding: .25rem .75rem;
+    }
+
+    /* 2 columns: 600px */
+    @media only screen and (min-width: 600px) {
+      .autowide .module {
+    		float: left;
+    		margin-right: 2.564102564102564%;
+    		width: 48.717948717948715%;
+    	}
+    	.autowide .module:nth-child(2n+0) {
+    		margin-right: 0;
+    	}
+    }
+
+    /* 3 columns: 768px */
+    @media only screen and (min-width: 768px) {
+      .autowide .module {
+    		width: 31.623931623931625%;
+    	}
+    	.autowide .module:nth-child(2n+0) {
+    		margin-right: 2.564102564102564%;
+    	}
+    	.autowide .module:nth-child(3n+0) {
+    		margin-right: 0;
+    	}
+    }
+
+    /* 4 columns: 992px and up */
+    @media only screen and (min-width: 992px) {
+      .autowide .module {
+    		width: 23.076923076923077%;
+    	}
+    	.autowide .module:nth-child(3n+0) {
+    		margin-right: 2.564102564102564%;
+    	}
+    	.autowide .module:nth-child(4n+0) {
+    		margin-right: 0;
+    	}
     }
