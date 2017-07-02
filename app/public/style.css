@@ -1,0 +1,100 @@
+  #menu li {
+  	display:inline-block;
+  	margin: 10px;
+  	color: #000;
+  	background:#fff;
+  	background: rgba(255,255,255, 0.5);
+  	-webkit-border-radius: 10px;
+              border-radius: 10px;
+            }
+  #menu li.active{
+  	background:#666;
+  	background: rgba(0,0,0, 0.5);
+  	color: #fff;
+    }
+  #menu li a{
+  	text-decoration:none;
+  	color: #CD4B39;
+    font-family: futura;
+    }
+  #menu li.active a:hover{
+  	color: #000;
+    }
+  #menu li:hover{
+  	background: rgba(255,255,255, 0.8);
+    }
+  #menu li a,
+  #menu li.active a{
+  	padding: 9px 18px;
+  	display:block;
+    }
+  #menu li.active a{
+  	color: #fff;
+    }
+  #menu{
+  	text-align: center;
+    position: fixed;
+  	top:0;
+  	left:0;
+  	height: 40px;
+  	z-index: 70;
+  	width: 100%;
+  	padding: 0;
+  	margin:0;
+    margin-top: 260px;
+  }
+
+    #section1 {
+    background-image: url('/images/bdash2-01.png');
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
+    image-rendering: -webkit-optimize-contrast;
+    margin-top: 0;
+    padding: 0;
+      }
+
+  h1 {
+    color: #CD4B39;
+    text-align: center;
+    font-size: 75px;
+    font-family: Futura;
+    margin-bottom: 330px;
+    }
+
+  h2 {
+    color: #2D3BB5;
+    font-family: futura;
+    font-size: 75px;
+    position: fixed;
+    top: 0;
+    margin-left: 20px;
+    margin-top: -1px;
+  }
+
+  #section2 {
+  background-color: #518CD8;
+    }
+  #section3 {
+  background-color: #D85161;
+    }
+  #section4 {
+    background-color: #6951D8;
+    }
+
+  .section {
+  background-attachment: fixed;
+
+  background-size: auto 80%;
+  background-position: 50% 0%;
+  background-repeat: no-repeat;
+    }
+
+
+  hr {
+    align-self: center;
+    border-color: #E54549;
+    margin-left: 500px;
+    margin-right: 500px;
+    margin-bottom: 295px;
+    }
