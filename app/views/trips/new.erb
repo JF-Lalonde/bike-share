@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bike Share World!</title>
+  </head>
+  <body>
+    <a href="/trips">Go Back</a>
+    <h1>Add trip</h1>
+    <form action="/trips" method= "post">
+      <label>Duration</label>
+      <input class="mytext" type= "text" name= "trip[duration]"><br/>
+      <label>Start Date</label>
+      <input class="mytext" type= "text" name= "trip[start_date]"><br/>
+      <label>start_station</label>
+      <input class="mytext" type= "text" name= "trip[start_station]"><br/>
+      <label>End Date</label>
+      <input class="mytext" type= "text" name= "trip[end_date]"><br/>
+      <label>End Station</label>
+      <input class="mytext" type= "text" name= "trip[end_station]"><br/>
+      <label>Bike ID</label>
+      <input class="mytext" type= "text" name= "trip[bike_id]"><br/>
+      <label>Subscription Type</label>
+      <input class="mytext" type= "text" name= "trip[subscription_type]"><br/>
+      <label>Zip Code</label>
+      <input class="mytext" type= "text" name= "trip[zip_code]"><br/>
+      <input type= "submit">
+    </form>
+  </body>
+</html>
