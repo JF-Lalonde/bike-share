@@ -5,5 +5,4 @@ class Trip < ActiveRecord::Base
     Trip.order(start_date: :desc).in_batches(of: 30)
   end
 
-
 end

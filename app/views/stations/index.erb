@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bike Share World!</title>
+    <meta charset="utf-8">
+    <title></title>
   </head>
   <body>
-    <h1>Stations</h1>
-    <a href="/stations/new">Add Station</a>
-      <% @stations.each do |station| %>
-        <h2><%= station.name %></h2>
-      <a href="/stations/<%= station.id  %>/edit">Edit</a>
-      <form action="/stations/<%= station.id%>" method="POST">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="delete"/>
-      </form>
-      <% end %>
+    <%@stations.each do |station|%>
+    <p><%= station.name %></p>
+    <% end %>
+    <p><%= will_paginate @pages %></p>
   </body>
 </html>
