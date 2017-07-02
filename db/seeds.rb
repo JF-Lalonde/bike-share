@@ -1,39 +1,39 @@
+require './db/tbl/seed_station.rb'
+require './db/tbl/seed_city.rb'
+require './db/tbl/update_city_station.rb'
 require 'CSV'
-require './app/models/station.rb'
-require './app/models/city.rb'
 require 'Date'
 require 'active_support/core_ext'
 
 
-# CSV.foreach("./db/csv/station.csv", :headers => true) do |row|
-#
-#  city_name = row["city"]
-#   date = row["installation_date"]
-#
-#  row.delete("id")
-#
-#  row['installation_date'] = Date.strptime(date, '%m/%d/%Y')
-#   Station.create!(row.to_h) unless Station.exists?(name: row['name'])
-# end
-#
-# Station.uniq.pluck(:city).each do |city|
-#   City.create!(name: city) unless City.exists?(name: row['name'])
-# end
+class Seeds
 
-Station.where(city: "Palo Alto").each do |station|
-  station.update_attributes(city_id: City.find_by(name: "Palo Alto").id)
+  def reset
+    Station.destroy_all
+    City.destroy_all
+  end
+
+  def seed_full_database
+    reset
+    seed_stations
+    seed_cities
+    seed_stations_with_city_id
+  end
+
+  def seed_stations
+    SeedStation.make_stations_table
+  end
+
+  def seed_cities
+    SeedCity.create_db_table
+  end
+
+  def seed_stations_with_city_id
+    UpdateCityIdStation.update_city_id_in_stations
+  end
 end
 
-Station.where(city: "San Francisco").each do |station|
-  station.update_attributes(city_id: City.find_by(name: "San Francisco").id)
-end
+a = Seeds.new
 
-Station.where(city: "San Jose").each do |station|
-  station.update_attributes(city_id: City.find_by(name: "San Jose").id)
-end
-
-Station.where(city: "Mountain View").each do |station|
-  station.update_attributes(city_id: City.find_by(name: "Mountain View").id)
-end
 
 puts "station database seeded"
