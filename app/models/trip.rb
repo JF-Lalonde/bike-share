@@ -42,8 +42,8 @@ class Trip < ActiveRecord::Base
     (Trip.pluck(:end_station_name).max)
   end
 
-  def self.monthly_rides_breakdown(month)
-    Trip.where('extract(month from start_date) =?',month)
+  def self.monthly_rides_breakdown(month, year)
+    Trip.where('extract(month from start_date) =? and extract(year from start_date) =?',month, year)
   end
 
 end
