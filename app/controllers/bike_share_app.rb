@@ -88,4 +88,40 @@ class BikeShareApp < Sinatra::Base
     redirect "/trips"
   end
 
+  get "/conditions" do
+    Condition.connection
+    @pages = Condition.paginate(page: params[:page])
+    @conditions = Condition.order('date DESC').page(params[:page])
+    erb :"conditions/index"
+  end
+
+  get "/conditions/new" do
+    erb :new
+  end
+
+  post "/conditions" do
+    condition = Condition.new(params[:condition])
+    condition.save
+    redirect "/conditions"
+  end
+
+  get "/conditions/:id" do
+    @condition = Condition.find(params[:id].to_i)
+    erb :"condition/show"
+  end
+
+  get "/conditions/:id/edit" do
+    @condition = Condition.find(params[:id].to_i)
+    erb :"condition/edit"
+  end
+
+  put "conditions/:id" do |id|
+    Condition.update(id.to_i, params[:condition])
+    redirect "/condition/#{id}"
+  end
+
+  delete "conditions/:id" do
+    Condition.destroy(params[:id].to_i)
+    redirect "/conditions"
+  end
 end
