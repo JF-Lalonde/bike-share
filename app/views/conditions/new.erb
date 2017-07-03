@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bike Share World!</title>
+  </head>
+  <body>
+    <a href="/conditions">Go Back</a>
+    <h1>Add condition</h1>
+    <form action="/conditions" method= "post">
+      <label>Date</label>
+      <input class="mytext" type= "text" name= "condition[date]"><br/>
+      <label>Max Temperature</label>
+      <input class="mytext" type= "text" name= "condition[max_temperature_f]"><br/>
+      <label>Mean Temperature</label>
+      <input class="mytext" type= "text" name= "condition[mean_temperature_f]"><br/>
+      <label>Min Temperature</label>
+      <input class="mytext" type= "text" name= "condition[min_temperature_f]"><br/>
+      <label>Mean Humidity</label>
+      <input class="mytext" type= "text" name= "condition[mean_humidity]"><br/>
+      <label>Mean Visibility (in Miles)</label>
+      <input class="mytext" type= "text" name= "condition[mean_visibility_miles]"><br/>
+      <label>Mean Wind (in MPH)</label>
+      <input class="mytext" type= "text" name= "condition[mean_wind_speed_mph]"><br/>
+      <label>Precipitation (in Inches)</label>
+      <input class="mytext" type= "text" name= "condition[precipitation_inches]"><br/>
+      <input type= "submit">
+    </form>
+  </body>
+</html>
