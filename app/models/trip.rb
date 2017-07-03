@@ -13,11 +13,13 @@ class Trip < ActiveRecord::Base
   validates :subscription_type, presence: true
   validates :zip_code, presence: true
 
-  def self.trip_chunks_by_date
-    Trip.order(start_date: :desc).in_batches(of: 30)
-  end
-
   def self.per_page
     30
   end
+
+  def self.average_duration_of_a_ride
+    (Trip.average(:duration).to_f).round(2)
+  end
+  
+
 end
