@@ -100,5 +100,23 @@ RSpec.describe Station do
 
       expect(result[0]).to eq(st_3)
     end
+
+    it "will return the oldest stations date" do
+      st = Station.create(name: "Penn Station", dock_count: 22, city_id: 4, installation_date: 'Sat, 08 Jun 2012')
+      st_2 = Station.create(name: "Need a gearup", dock_count: 5, city_id: 3, installation_date: 'Sat, 08 Jun 2013')
+      st_3 = Station.create(name: "Crustacean_blue", dock_count: 19, city_id: 3, installation_date: 'Sat, 08 Jun 2014')
+      result = Station.oldest_station_date
+
+      expect(result.class).to eq(Date)
+    end
+
+    it "will return the oldest station(s)" do
+      st = Station.create(name: "Penn Station", dock_count: 22, city_id: 4, installation_date: 'Sat, 08 Jun 2012')
+      st_2 = Station.create(name: "Need a gearup", dock_count: 5, city_id: 3, installation_date: 'Sat, 08 Jun 2013')
+      st_3 = Station.create(name: "Crustacean_blue", dock_count: 19, city_id: 3, installation_date: 'Sat, 08 Jun 2014')
+      result = Station.oldest_station
+
+      expect(result[0]).to eq(st)
+    end
   end
 end
