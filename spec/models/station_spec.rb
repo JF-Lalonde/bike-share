@@ -64,5 +64,14 @@ RSpec.describe Station do
 
       expect(result[0]).to eq(st_2)
     end
+
+    it "will return the station(s) with the least bikes" do
+      st = Station.create(name: "Penn Station", dock_count: 22, city_id: 4, installation_date: 'Sat, 08 Jun 2013')
+      st_2 = Station.create(name: "Need a gearup", dock_count: 5, city_id: 3, installation_date: 'Sat, 08 Jun 2013')
+      st_3 = Station.create(name: "Crustacean_blue", dock_count: 19, city_id: 3, installation_date: 'Sat, 08 Jun 2013')
+      result = Station.stations_with_least_bikes
+
+      expect(result[0]).to eq(st_2)
+    end
   end
 end
