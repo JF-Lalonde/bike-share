@@ -54,7 +54,7 @@ class BikeShareApp < Sinatra::Base
   get "/trips" do
     Trip.connection
     @pages = Trip.paginate(page: params[:page])
-    @trips = Trip.order('installation_date DESC').page(params[:page])
+    @trips = Trip.order('start_date DESC').page(params[:page])
     erb :"trips/index"
   end
 

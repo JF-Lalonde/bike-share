@@ -6,11 +6,11 @@
   </head>
   <body>
     <%@trips.each do |trip|%>
-      <p><%= trip.start_station %></p>
+      <p><%= trip.start_station_name %></p>
       <p><%= trip.duration %></p>
       <p><%= trip.start_date %></p>
       <p><%= trip.end_date %></p>
-      <p><%= trip.end_station %></p>
+      <p><%= trip.end_station_name %></p>
       <p><%= trip.bike_id %></p>
       <p><%= trip.subscription_type %></p>
       <p><%= trip.zip_code %></p>

@@ -1,1 +1,2 @@
 db/csv/*.csv
+db/migrate/20170702231248_drop_and_reset_trips.rb
