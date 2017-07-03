@@ -20,6 +20,13 @@ class Trip < ActiveRecord::Base
   def self.average_duration_of_a_ride
     (Trip.average(:duration).to_f).round(2)
   end
-  
+
+  def self.longest_ride
+    (Trip.pluck(:duration).max)
+  end
+
+  def self.shortest_ride
+    (Trip.pluck(:duration).min)
+  end
 
 end
