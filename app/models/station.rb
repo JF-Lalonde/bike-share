@@ -1,10 +1,13 @@
 class Station < ActiveRecord::Base
+  has_many :trips
   belongs_to :city
   validates :name, presence: true
   validates :city_id, presence: true
   validates :dock_count, presence: true
   validates :installation_date, presence: true
   validates :name, uniqueness: true
+
+
 
 
 
@@ -42,6 +45,23 @@ class Station < ActiveRecord::Base
 
   def self.oldest_station
     (Station.where(installation_date: oldest_station_date))
+  end
+
+  def self.validate_name_change(name)
+    if equivalent_names[name]
+      equivalent_names[name]
+    else
+      name
+    end
+  end
+
+  def self.equivalent_names
+    {
+      "San Jose Government Center"=>"Santa Clara County Civic Center",
+      "Broadway at Main" =>"Stanford in Redwood City",
+      "Post at Kearny" => "Post at Kearney",
+      "Washington at Kearny" => "Washington at Kearney"
+    }
   end
 
 end
