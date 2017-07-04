@@ -53,7 +53,5 @@ class Seeds
 end
 
 a = Seeds.new
-a.update_start_and_end_station_ids_in_trips
-
 
 puts "database seeded"
