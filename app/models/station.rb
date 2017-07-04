@@ -1,3 +1,7 @@
+require './app/models/start_station.rb'
+require './app/models/end_station.rb'
+require './app/models/trip.rb'
+
 class Station < ActiveRecord::Base
   has_many :trips
   has_many :start_stations
@@ -10,11 +14,13 @@ class Station < ActiveRecord::Base
   validates :name, uniqueness: true
 
   def start_trips
-    self.start_stations.trips
+    station = StartStation.find_by(station_id: self.id)
+    station.trips
   end
 
   def end_trips
-    self.end_stations.trips
+    station = EndStation.find_by(station_id: self.id)
+    station.trips
   end
 
   def self.avg_bikes_per_station

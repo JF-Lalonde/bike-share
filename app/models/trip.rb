@@ -24,13 +24,15 @@ class Trip < ActiveRecord::Base
   validates :zip_code, presence: true
 
   def start_station
-    self.start_station.station
+    start = StartStation.find(self.start_station_id)
+    start.station
   end
 
   def end_station
-    self.end_station.station
+    end_station = EndStation.find(self.end_station_id)
+    end_station.station
   end
-  
+
   def self.per_page
     30
   end
