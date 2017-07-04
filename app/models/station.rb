@@ -1,5 +1,7 @@
 class Station < ActiveRecord::Base
   has_many :trips
+  has_many :start_stations
+  has_many :end_stations
   belongs_to :city
   validates :name, presence: true
   validates :city_id, presence: true
@@ -7,9 +9,13 @@ class Station < ActiveRecord::Base
   validates :installation_date, presence: true
   validates :name, uniqueness: true
 
+  def start_trips
+    self.start_stations.trips
+  end
 
-
-
+  def end_trips
+    self.end_stations.trips
+  end
 
   def self.avg_bikes_per_station
     (Station.average(:dock_count).to_f).round(0)

@@ -1,12 +1,17 @@
 require 'will_paginate'
 require 'will_paginate/active_record'
 require './app/models/station.rb'
+require './app/models/start_station.rb'
+require './app/models/end_station.rb'
 require 'Date'
 
 
 class Trip < ActiveRecord::Base
   belongs_to :station
-
+  belongs_to :start_station
+  delegate :start_station_name, :to => :start_station
+  belongs_to :end_station
+  delegate :end_station_name, :to => :end_station
   validates :duration, presence: true
   validates :start_station_name, presence: true
   validates :start_station_id, presence: true
@@ -18,6 +23,14 @@ class Trip < ActiveRecord::Base
   validates :subscription_type, presence: true
   validates :zip_code, presence: true
 
+  def start_station
+    self.start_station.station
+  end
+
+  def end_station
+    self.end_station.station
+  end
+  
   def self.per_page
     30
   end
@@ -34,10 +47,8 @@ class Trip < ActiveRecord::Base
     (Trip.pluck(:duration).min)
   end
 
-  ## Flesh out relationship with station
   def self.station_with_most_start_trips
-    station_name = (Trip.pluck(:start_station_name).max)
-    # Station.find_by(name: station_name).class
+    Station.trips
   end
 
   def self.station_with_most_end_trips
