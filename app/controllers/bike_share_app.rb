@@ -51,6 +51,11 @@ class BikeShareApp < Sinatra::Base
     erb :"stations/dashboard"
   end
 
+  get "/trip-dashboard" do
+    @trip = Trip.all
+    erb :"trips/dashboard"
+  end
+
   get "/trips" do
     Trip.connection
     @pages = Trip.paginate(page: params[:page])
