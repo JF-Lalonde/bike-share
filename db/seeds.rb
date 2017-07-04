@@ -50,8 +50,13 @@ class Seeds
     StationUpdateStationIdsInTrips.update_start_station_id_in_trips
     StationUpdateStationIdsInTrips.update_end_station_id_in_trips
   end
+
+  def seed_table_conditions
+    SeedCondition.seed_conditions_table
+  end
 end
 
 a = Seeds.new
+a.seed_table_conditions
 
 puts "database seeded"
