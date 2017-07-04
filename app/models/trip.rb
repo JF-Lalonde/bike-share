@@ -34,7 +34,7 @@ class Trip < ActiveRecord::Base
     (Trip.pluck(:duration).min)
   end
 
-  ## Flesh out relationship with station
+  ## Flesh out relationship with station, #possibly same as ridden bikes least and most below 
   def self.station_with_most_start_trips
     station_name = (Trip.pluck(:start_station_name).max)
     # Station.find_by(name: station_name).class
@@ -45,17 +45,21 @@ class Trip < ActiveRecord::Base
   end
 
   def self.monthly_rides_breakdown(month, year)
-    Trip.where('extract(month from start_date) =? and extract(year from start_date) =?',month, year)
+    (Trip.where('extract(month from start_date) =? and extract(year from start_date) =?',month, year)).count
   end
 
   def self.yearly_rides_breakdown(year)
-    Trip.where('extract(year from start_date) =?', year)
+    (Trip.where('extract(year from start_date) =?', year)).count
   end
 
   def self.most_ridden_bike
-    Trip.all.each do |bike|
-    bike.trips.count
-    end
+    bike = Trip.group(:bike_id).order("count_id DESC").limit(1).count(:id)
+    bike.keys
+  end
+
+  def self.least_ridden_bike
+    bike = Trip.group(:bike_id).order("count_id ASC").limit(1).count(:id)
+    bike.keys
   end
 
   def self.sub_type_breakdown
