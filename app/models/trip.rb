@@ -84,9 +84,8 @@ class Trip < ActiveRecord::Base
   def self.number_of_rides_started_at_this_station(started)
 
   end
-  
+
   def self.number_of_rides_ended_at_this_station(ended)
   end
 
-end
 end
