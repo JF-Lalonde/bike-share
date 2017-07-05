@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bike Share World!</title>
+    <link rel="stylesheet" type="text/css" href="station-style.css"/>
+    <title>Bike Share Wo!</title>
   </head>
   <body>
     <h1>Stations</h1>
-    <a href="/stations/new">Add Station</a>
+    <a href="/stations/new"><h2>Add Station</h2></a>
       <% @stations.each do |station| %>
+      <div class="stations_holder">
         <h2><%= station.name %></h2>
+        <h3>Dock Count: <%= station.dock_count %></h3>
       <a href="/stations/<%= station.id  %>/edit">Edit</a>
       <form action="/stations/<%= station.id%>" method="POST">
         <input type="hidden" name="_method" value="DELETE">
         <input type="submit" value="delete"/>
       </form>
+      </div>
       <% end %>
   </body>
 </html>
