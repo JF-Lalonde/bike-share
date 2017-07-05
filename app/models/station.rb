@@ -1,4 +1,11 @@
+require './app/models/start_station.rb'
+require './app/models/end_station.rb'
+require './app/models/trip.rb'
+
 class Station < ActiveRecord::Base
+  # has_many :trips
+  # has_many :start_stations
+  # has_many :end_stations
   belongs_to :city
   validates :name, presence: true
   validates :city_id, presence: true
@@ -6,7 +13,15 @@ class Station < ActiveRecord::Base
   validates :installation_date, presence: true
   validates :name, uniqueness: true
 
+  def start_trips
+    station = StartStation.find_by(station_id: self.id)
+    station.trips
+  end
 
+  def end_trips
+    station = EndStation.find_by(station_id: self.id)
+    station.trips
+  end
 
   def self.avg_bikes_per_station
     (Station.average(:dock_count).to_f).round(0)
@@ -42,6 +57,23 @@ class Station < ActiveRecord::Base
 
   def self.oldest_station
     (Station.where(installation_date: oldest_station_date))
+  end
+
+  def self.validate_name_change(name)
+    if equivalent_names[name]
+      equivalent_names[name]
+    else
+      name
+    end
+  end
+
+  def self.equivalent_names
+    {
+      "San Jose Government Center"=>"Santa Clara County Civic Center",
+      "Broadway at Main" =>"Stanford in Redwood City",
+      "Post at Kearny" => "Post at Kearney",
+      "Washington at Kearny" => "Washington at Kearney"
+    }
   end
 
 end
