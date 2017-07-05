@@ -76,4 +76,36 @@ class Station < ActiveRecord::Base
     }
   end
 
+  def rides_started
+    start_trips.count
+  end
+
+  def rides_ended
+    end_trips.count
+  end
+
+  def most_popular_destination
+    station = Station.first.start_trips
+    station.group(:end_station).order("count_id DESC").count(:id).keys.first.station
+  end
+
+  def most_popular_origins
+    station = Station.first.end_trips
+    station.group(:start_station).order("count_id DESC").count(:id).keys.first.station
+  end
+
+  def most_popular_departure_date
+    station = Station.first.start_trips
+    station.group(:start_date).order("count_id DESC").count(:id).keys.first
+  end
+
+  def most_frequent_zipcode
+    station = Station.first.start_trips
+    station.group(:zip_code).order("count_id DESC").count(:id).keys.first
+  end
+
+  def most_frequent_zipcode
+    station = Station.first.start_trips
+    station.group(:bike_id).order("count_id DESC").count(:id).keys.first
+  end
 end

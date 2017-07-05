@@ -47,16 +47,14 @@ class Trip < ActiveRecord::Base
     (Trip.pluck(:duration).min)
   end
 
-
-  ## Flesh out relationship with station, #possibly same as ridden bikes least and most below
-
   def self.station_with_most_start_trips
-    station_name = (Trip.pluck(:start_station_name).max)
-    # Station.find_by(name: station_name).class
+    station = Trip.group(:start_station).order("count_id DESC").limit(1).count(:id)
+    station.keys.first.station
   end
 
   def self.station_with_most_end_trips
-    Trip.order(:end_station_name).last.end_station_name
+    station = Trip.group(:end_station).order("count_id DESC").limit(1).count(:id)
+    station.keys.first.station
   end
 
   def self.monthly_rides_breakdown(month, year)
@@ -83,11 +81,14 @@ class Trip < ActiveRecord::Base
     "There are #{subs} number of Subscribers, or #{(subs/(Trip.count.to_f) * 100).round(2)}% of all riders. Conversely, there are #{custs} number of Customers, or #{(custs/(Trip.count.to_f) * 100).round(2)}% of all riders."
   end
 
-  def self.number_of_rides_started_at_this_station(started)
-
+  def self.most_popular_date
+    date = Trip.group(:start_date).order("count_id DESC").limit(1).count(:id).keys.first
+    Trip.where(start_date: date)
   end
 
-  def self.number_of_rides_ended_at_this_station(ended)
+  def self.least_popular_date
+    date = Trip.group(:start_date).order("count_id").limit(1).count(:id).keys.first
+    Trip.where(start_date: date)
   end
 
 end
