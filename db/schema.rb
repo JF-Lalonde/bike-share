@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20170703203452) do
     t.float    "cloud_cover"
     t.string   "events"
     t.float    "wind_dir_degrees"
-    t.string   "zipcode"
+    t.string   "zip_code"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
   end

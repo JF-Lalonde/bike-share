@@ -7,7 +7,7 @@
     <a href="/conditions">Go Back</a>
     <form action="/conditions/<%= @condition.id %>" method="post">
       <input type="hidden" name="_method" value="PUT" />
-      <input name='condition[date]' value="<%= @condition.date %>"/><br/>
+      <input name='condition[this_date]' value="<%= @condition.this_date %>"/><br/>
       <input name='condition[max_temperature_f]' value="<%= @condition.max_temperature_f %>"</input><br/>
       <input name='condition[mean_temperature_f]' value="<%= @condition.mean_temperature_f %>"</input><br/>
       <input name='condition[min_temperature_f]' value="<%= @condition.min_temperature_f %>"</input><br/>
