@@ -3,9 +3,9 @@ require './app/models/end_station.rb'
 require './app/models/trip.rb'
 
 class Station < ActiveRecord::Base
-  # has_many :trips
-  # has_many :start_stations
-  # has_many :end_stations
+  has_many :trips
+  has_many :start_stations
+  has_many :end_stations
   belongs_to :city
   validates :name, presence: true
   validates :city_id, presence: true

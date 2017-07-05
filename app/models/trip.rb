@@ -7,9 +7,9 @@ require 'Date'
 
 
 class Trip < ActiveRecord::Base
-  # belongs_to :station
-  # belongs_to :start_station
-  # belongs_to :end_station
+  belongs_to :station
+  belongs_to :start_station
+  belongs_to :end_station
   validates :duration, presence: true
   validates :start_station_name, presence: true
   validates :start_station_id, presence: true
@@ -90,5 +90,4 @@ class Trip < ActiveRecord::Base
   def self.number_of_rides_ended_at_this_station(ended)
   end
 
-end
 end
