@@ -7,11 +7,9 @@ require 'Date'
 
 
 class Trip < ActiveRecord::Base
-  belongs_to :station
-  belongs_to :start_station
-  delegate :start_station_name, :to => :start_station
-  belongs_to :end_station
-  delegate :end_station_name, :to => :end_station
+  # belongs_to :station
+  # belongs_to :start_station
+  # belongs_to :end_station
   validates :duration, presence: true
   validates :start_station_name, presence: true
   validates :start_station_id, presence: true
