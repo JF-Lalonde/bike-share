@@ -5,16 +5,14 @@
     <title></title>
   </head>
   <body>
-    <% @trips.each do |trip| %>
-      <p><%= trip.start_station %></p>
-      <p><%= trip.duration %></p>
-      <p><%= trip.start_date %></p>
-      <p><%= trip.end_date %></p>
-      <p><%= trip.end_station %></p>
-      <p><%= trip.bike_id %></p>
-      <p><%= trip.subscription_type %></p>
-      <p><%= trip.zip_code %></p>
-    <% end %>
+      <p><%= @trip.start_station %></p>
+      <p><%= @trip.duration %></p>
+      <p><%= @trip.start_date %></p>
+      <p><%= @trip.end_date %></p>
+      <p><%= @trip.end_station %></p>
+      <p><%= @trip.bike_id %></p>
+      <p><%= @trip.subscription_type %></p>
+      <p><%= @trip.zip_code %></p>
     <form action="/trips/<%= trip.id%>" method="POST">
       <input type="hidden" name="_method" value="DELETE">
       <input type="submit" value="delete"/>
