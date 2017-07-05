@@ -1,3 +1,65 @@
+  #section2 hr {
+    margin-bottom: 400px;
+    }
+
+  #wrap {
+     width:900px;
+     margin:0 auto;
+  }
+  #left_col {
+     float:left;
+     width:300px;
+     margin-top: -150px;
+  }
+
+  #left_col p {
+    text-align: justify;
+    color: #2D3BB5;
+  }
+
+  #wrap a {
+    text-decoration: none;
+
+  }
+
+  #right_col p {
+    text-align: justify;
+    color: #2D3BB5;
+  }
+
+  #right_col {
+     float:right;
+     width:300px;
+     margin-top: -150px;
+  }
+
+  #left_col h3 {
+    font-size: 40px;
+    text-align: center;
+    color: #042B51;
+  }
+
+  #right_col h3 {
+    font-size: 40px;
+    text-align: center;
+    color: #042B51;
+  }
+
+  #section2 .intro p {
+    font-size: 20px;
+    float: left;
+    margin-top: -190px;
+    text-align: justify;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  #left_col, #right_col p {
+    /*margin-bottom: -100px;*/
+    font-size: 18px;
+  }
+
   #menu li {
   	display:inline-block;
   	margin: 10px;
@@ -42,7 +104,7 @@
   	width: 100%;
   	padding: 0;
   	margin:0;
-    margin-top: 260px;
+    margin-top: 290px;
   }
 
     #section1 {
@@ -177,9 +239,9 @@
       margin-bottom: 1rem;
       background-color: #D8D9DA;
     }
-    .autowide .module p {
+    /*.autowide .module p {
       padding: .25rem .75rem;
-    }
+    }*/
 
     /* 2 columns: 600px */
     @media only screen and (min-width: 600px) {
