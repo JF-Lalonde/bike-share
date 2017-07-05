@@ -1,6 +1,6 @@
 class EndStation < ActiveRecord::Base
-  # belongs_to :station
-  # has_many :trips
+  belongs_to :station
+  has_many :trips
 
 
 
