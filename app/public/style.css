@@ -69,6 +69,16 @@
     padding-right: 20px;
   }
 
+  #section4 .intro p {
+    font-size: 20px;
+    float: left;
+    margin-top: -135px;
+    text-align: justify;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   #left_col, #right_col p {
     /*margin-bottom: -100px;*/
     font-size: 18px;
@@ -131,7 +141,15 @@
     padding: 0;
       }
 
-    #section2, #section3 {
+    #section2 {
+    color: #CD4B39;
+    text-align: center;
+    font-size: 75px;
+    font-family: Futura;
+    margin-bottom: 330px;
+    }
+
+    #section3 {
     color: #CD4B39;
     text-align: center;
     font-size: 75px;
@@ -140,6 +158,15 @@
     }
 
   #section3 h2 {
+    color: #2D3BB5;
+    font-family: futura;
+    font-size: 75px;
+    position: fixed;
+    top: 0;
+    margin-left: 20px;
+    margin-top: -1px;
+  }
+  #section4 h2 {
     color: #2D3BB5;
     font-family: futura;
     font-size: 75px;
@@ -173,7 +200,12 @@
   #section3 {
   background-color: #D85161;
     }
+
   #section4 {
+    background-color: #F3A02A;
+    font-family: futura;
+  }
+  #section5 {
     background-image: url("https://kennylee.neocities.org/Ubuntu-15.04-Default-Wallpaper-Suru-Grey-White-Color.jpg");
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
@@ -200,15 +232,15 @@
     margin-bottom: 295px;
     }
 
-    #section4 hr {
+    #section5 hr {
       margin-bottom: 30px;
     }
 
-    #section4 body {
+    #section5 body {
       font-family: sans-serif;
       font-size: .9rem;
     }
-    #section4 h1 {
+    #section5 h1 {
       text-align: center;
       font-family: helvetica;
       font-size: 60px;
@@ -216,19 +248,19 @@
       color: black;
     }
 
-    #section4 p {
+    #section5 p {
       font-family: futura;
       text-align: center;
       margin-bottom: 15px;
     }
 
-    #section4 h2 {
+    #section5 h2 {
       text-align: center;
       font-family: futura;
       font-size: 20px;
     }
 
-    #section4 h4 {
+    #section5 h4 {
       text-align: center;
       font-family: helvetica;
       margin-top: -30px;
@@ -236,7 +268,7 @@
 
     }
 
-    #section4 a img {
+    #section5 a img {
         width: 25px;
         height: 25px;
         display: inline-block;

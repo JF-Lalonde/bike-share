@@ -12,11 +12,11 @@
 			*/
 	    	$('#pagepiling').pagepiling({
 	    		menu: '#menu',
-	    		anchors: ['page1', 'page2', 'page3', 'page4'],
+	    		anchors: ['page1', 'page2', 'page3', 'page4', 'page5'],
 
 			    navigation: {
 			    	'position': 'right',
-			   		'tooltips': ['Page 1', 'Page 2', 'Page 3', 'Page 4']
+			   		'tooltips': ['Page 1', 'Page 2', 'Page 3', 'Page 4', 'Page 5']
 			   	},
 			    afterRender: function(){
 			    	$('#pp-nav').addClass('custom');
@@ -51,8 +51,9 @@
               <h1>Bike Share</h1>
               <ul id="menu">
             		<li data-menuanchor="page2"><a href="#page2">Stations</a></li>
-            		<li data-menuanchor="page3"><a href="#page3">Station Analytics</a></li>
-            		<li data-menuanchor="page4"><a href="#page4">Team</a></li>
+            		<li data-menuanchor="page3"><a href="#page3">Trips</a></li>
+            		<li data-menuanchor="page4"><a href="#page4">Conditions</a></li>
+                <li data-menuanchor="page5"><a href="#page5">Team</a></li>
             	</ul>
     			<br />
     	    </div>
@@ -88,60 +89,75 @@
                   </div>
               </div>
           </div>
-    	    <div class="section" id="section4">
-            <h1>Our Team</h1>
-            <h4>Who are we?</h4>
-            <div class="autowide">
-            	<div class="module">
-                <img src="https://avatars2.githubusercontent.com/u/19578346?v=3&s=460" alt="" />
-                <h2>Michael Centrelli</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sequi sint ipsa alias amet. Numquam voluptatum maiores. Ab repellat dolores quo quas quam quasi voluptatem delectus aperiam. Deleniti accusamus dolore!</p>
-                <hr>
-                <a href='https://twitter.com/Mcentrelli'>
-                  <img src="http://www.jainsanjay.com/images/twitter.png"></a>
-                <a href='https://github.com/mcents'>
-                <img src="https://image.flaticon.com/icons/png/512/23/23957.png"></a>
-                <a href='https://www.linkedin.com/in/michaelcentrelli/'>
-                <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png"></a>
-            	</div>
-            	<div class="module">
-                <img src="https://avatars0.githubusercontent.com/u/25907721?v=3&s=460" alt="" />
-                <h2>Ash Vaid</h2>
-            		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quis veniam accusantium molestias rerum distinctio a quidem numquam illo veritatis recusandae odit consectetur esse nobis alias earum quia omnis sed!</p>
-                <hr>
-                <a href='https://twitter.com/Mcentrelli'>
-                  <img src="http://www.jainsanjay.com/images/twitter.png"></a>
-                <a href='https://github.com/mcents'>
-                <img src="https://image.flaticon.com/icons/png/512/23/23957.png"></a>
-                <a href='https://www.linkedin.com/in/michaelcentrelli/'>
-                <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png"></a>
-            	</div>
-            	<div class="module">
-                <img src="https://avatars2.githubusercontent.com/u/26772297?v=3&s=460" alt="" />
-                <h2>JF Lalonde</h2>
-            		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem repellendus pariatur esse vel ex iure id sunt voluptatibus atque ut commodi ad aliquam assumenda. Facilis soluta cumque mollitia officiis dolorum!</p>
-                <hr>
-                <a href='https://twitter.com/Mcentrelli'>
-                  <img src="http://www.jainsanjay.com/images/twitter.png"></a>
-                <a href='https://github.com/mcents'>
-                <img src="https://image.flaticon.com/icons/png/512/23/23957.png"></a>
-                <a href='https://www.linkedin.com/in/michaelcentrelli/'>
-                <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png"></a>
-            	</div>
-            	<div class="module">
-                <img src="https://avatars1.githubusercontent.com/u/25143074?v=3&s=460" alt="" />
-                <h2>Will Ratterman</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis harum suscipit ducimus quisquam doloremque dolorum tenetur dolore libero optio quam delectus blanditiis dicta fuga impedit commodi adipisci aperiam?</p>
-                <hr>
-                <a href='https://twitter.com/Mcentrelli'>
-                  <img src="http://www.jainsanjay.com/images/twitter.png"></a>
-                <a href='https://github.com/mcents'>
-                <img src="https://image.flaticon.com/icons/png/512/23/23957.png"></a>
-                <a href='https://www.linkedin.com/in/michaelcentrelli/'>
-                <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png"></a>
-            	</div>
+          <div class="section" id="section4">
+    	    	<div class="intro">
+              <h2>Conditions</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sequi sint ipsa alias amet. Numquam voluptatum maiores. Ab repellat dolores quo quas quam quasi voluptatem delectus aperiam. Deleniti accusamus dolore!</p>
             </div>
-            </div>
+              <div id="wrap">
+                <div id="left_col">
+                  <a href="/trips"> <h3>List of Conditions</h3></a>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sequi sint ipsa alias amet. Numquam voluptatum maiores. Ab repellat dolores quo quas quam quasi voluptatem delectus aperiam. Deleniti accusamus dolore!</p>
+                </div>
+                <div id="right_col">
+                  <a href='/trip-dashboard'><h3>Condition Analytics</h3></a>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sequi sint ipsa alias amet. Numquam voluptatum maiores. Ab repellat dolores quo quas quam quasi voluptatem delectus aperiam. Deleniti accusamus dolore!</p>
+                  </div>
+              </div>
+          </div>
+            <div class="section" id="section5">
+              <h1>Our Team</h1>
+              <h4>Who are we?</h4>
+              <div class="autowide">
+              	<div class="module">
+                  <img src="https://avatars2.githubusercontent.com/u/19578346?v=3&s=460" alt="" />
+                  <h2>Michael Centrelli</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sequi sint ipsa alias amet. Numquam voluptatum maiores. Ab repellat dolores quo quas quam quasi voluptatem delectus aperiam. Deleniti accusamus dolore!</p>
+                  <hr>
+                  <a href='https://twitter.com/Mcentrelli'>
+                    <img src="http://www.jainsanjay.com/images/twitter.png"></a>
+                  <a href='https://github.com/mcents'>
+                  <img src="https://image.flaticon.com/icons/png/512/23/23957.png"></a>
+                  <a href='https://www.linkedin.com/in/michaelcentrelli/'>
+                  <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png"></a>
+              	</div>
+              	<div class="module">
+                  <img src="https://avatars0.githubusercontent.com/u/25907721?v=3&s=460" alt="" />
+                  <h2>Ash Vaid</h2>
+              		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quis veniam accusantium molestias rerum distinctio a quidem numquam illo veritatis recusandae odit consectetur esse nobis alias earum quia omnis sed!</p>
+                  <hr>
+                  <a href='https://twitter.com/Mcentrelli'>
+                    <img src="http://www.jainsanjay.com/images/twitter.png"></a>
+                  <a href='https://github.com/mcents'>
+                  <img src="https://image.flaticon.com/icons/png/512/23/23957.png"></a>
+                  <a href='https://www.linkedin.com/in/michaelcentrelli/'>
+                  <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png"></a>
+              	</div>
+              	<div class="module">
+                  <img src="https://avatars2.githubusercontent.com/u/26772297?v=3&s=460" alt="" />
+                  <h2>JF Lalonde</h2>
+              		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem repellendus pariatur esse vel ex iure id sunt voluptatibus atque ut commodi ad aliquam assumenda. Facilis soluta cumque mollitia officiis dolorum!</p>
+                  <hr>
+                  <a href='https://twitter.com/Mcentrelli'>
+                    <img src="http://www.jainsanjay.com/images/twitter.png"></a>
+                  <a href='https://github.com/mcents'>
+                  <img src="https://image.flaticon.com/icons/png/512/23/23957.png"></a>
+                  <a href='https://www.linkedin.com/in/michaelcentrelli/'>
+                  <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png"></a>
+              	</div>
+              	<div class="module">
+                  <img src="https://avatars1.githubusercontent.com/u/25143074?v=3&s=460" alt="" />
+                  <h2>Will Ratterman</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis harum suscipit ducimus quisquam doloremque dolorum tenetur dolore libero optio quam delectus blanditiis dicta fuga impedit commodi adipisci aperiam?</p>
+                  <hr>
+                  <a href='https://twitter.com/Mcentrelli'>
+                    <img src="http://www.jainsanjay.com/images/twitter.png"></a>
+                  <a href='https://github.com/mcents'>
+                  <img src="https://image.flaticon.com/icons/png/512/23/23957.png"></a>
+                  <a href='https://www.linkedin.com/in/michaelcentrelli/'>
+                  <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png"></a>
+              	</div>
+              </div>
     	    </div>
         </div>
 
