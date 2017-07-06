@@ -5,8 +5,8 @@ RSpec.describe "When a user can visits /stations" do
     visit('/stations')
     click_on('Edit')
 
-    expect(current_path).to eq('stations/:id')
-    expect(page).to have_content('')
+    expect(current_path).to eq('/stations/1/edit')
+    expect(page).to have_content('Edit')
 
   end
 end

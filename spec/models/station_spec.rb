@@ -135,9 +135,9 @@ RSpec.describe Station do
       b = Station.create(name: "Union", city_id: 1, dock_count: 5, installation_date: "Mon, 06 May 2013")
       StartStation.create(station_id: 1)
       StartStation.create(station_id: 2)
-      trip = Trip.create(duration: 35, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
-      trip_2 = Trip.create(duration: 1175, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Union', start_station_id: 2, end_station_name: 'Penn', end_station_id: 1, bike_id: 2, subscription_type: 'Customer', zip_code: '90210')
-      trip_3 = Trip.create(duration: 235, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
+      trip = Trip.create(duration: 35, start_station_id: 1, end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
+      trip_2 = Trip.create(duration: 1175,  start_station_id: 2, end_station_id: 1, bike_id: 2, subscription_type: 'Customer', zip_code: '90210')
+      trip_3 = Trip.create(duration: 235, start_station_id: 1, end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
 
       result = a.rides_started
       result_2 = b.rides_started
@@ -151,9 +151,9 @@ RSpec.describe Station do
       b = Station.create(name: "Union", city_id: 1, dock_count: 5, installation_date: "Mon, 06 May 2013")
       EndStation.create(station_id: 1)
       EndStation.create(station_id: 2)
-      trip = Trip.create(duration: 35, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
-      trip_2 = Trip.create(duration: 1175, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Union', start_station_id: 2, end_station_name: 'Penn', end_station_id: 1, bike_id: 2, subscription_type: 'Customer', zip_code: '90210')
-      trip_3 = Trip.create(duration: 235, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
+      trip = Trip.create(duration: 35, start_station_id: 1, end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
+      trip_2 = Trip.create(duration: 1175,  start_station_id: 2, end_station_id: 1, bike_id: 2, subscription_type: 'Customer', zip_code: '90210')
+      trip_3 = Trip.create(duration: 235, start_station_id: 1, end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
 
       result = a.rides_ended
       result_2 = b.rides_ended
@@ -171,9 +171,9 @@ RSpec.describe Station do
       EndStation.create(station_id: 2)
 
 
-      trip = Trip.create(duration: 35, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
-      trip_2 = Trip.create(duration: 1175, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Union', start_station_id: 2, end_station_name: 'Penn', end_station_id: 1, bike_id: 2, subscription_type: 'Customer', zip_code: '90210')
-      trip_3 = Trip.create(duration: 235, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
+      trip = Trip.create(duration: 35, start_station_id: 1,  end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
+      trip_2 = Trip.create(duration: 1175,  start_station_id: 2, end_station_id: 1, bike_id: 2, subscription_type: 'Customer', zip_code: '90210')
+      trip_3 = Trip.create(duration: 235, start_station_id: 1,  end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
 
       result = a.most_popular_destination
       result_2 = b.most_popular_destination
@@ -191,9 +191,9 @@ RSpec.describe Station do
       EndStation.create(station_id: 2)
 
 
-      trip = Trip.create(duration: 35, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
-      trip_2 = Trip.create(duration: 1175, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Union', start_station_id: 2, end_station_name: 'Penn', end_station_id: 1, bike_id: 2, subscription_type: 'Customer', zip_code: '90210')
-      trip_3 = Trip.create(duration: 235, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
+      trip = Trip.create(duration: 35, start_station_id: 1,  end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
+      trip_2 = Trip.create(duration: 1175,  start_station_id: 2, end_station_id: 1, bike_id: 2, subscription_type: 'Customer', zip_code: '90210')
+      trip_3 = Trip.create(duration: 235, start_station_id: 1,  end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
 
       result = a.most_popular_origins
       result_2 = b.most_popular_origins
@@ -209,15 +209,20 @@ RSpec.describe Station do
       StartStation.create(station_id: 2)
       EndStation.create(station_id: 1)
       EndStation.create(station_id: 2)
+      AllDate.create(todays_date: "Wed, 08 May 2013")
+      AllDate.create(todays_date: "Thurs, 09 May 2013")
+      StartDate.create(date_id: 1)
+      EndDate.create(date_id: 1)
+      StartDate.create(date_id: 2)
+      EndDate.create(date_id: 2)
 
-
-      trip = Trip.create(duration: 35, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
-      trip_2 = Trip.create(duration: 1175, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 2, bike_id: 2, subscription_type: 'Customer', zip_code: '90210')
-      trip_3 = Trip.create(duration: 235, start_date: 'Mon, 07 May 2013', end_date: 'Mon, 07 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
+      trip = Trip.create(duration: 35, start_station_id: 1, end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210', start_date_id: 1, end_date_id: 2)
+      trip_2 = Trip.create(duration: 1175, start_station_id: 1, end_station_id: 2, bike_id: 2, subscription_type: 'Customer', zip_code: '90210', start_date_id: 2, end_date_id: 1)
+      trip_3 = Trip.create(duration: 235, start_station_id: 1, end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210', start_date_id: 1, end_date_id: 1)
 
       result = a.most_popular_departure_date
 
-      expect(result.to_s).to eq('2013-05-06')
+      expect(result.all_date.todays_date.to_s).to eq('2013-05-08')
     end
 
     it "will return the most frequent zipcode" do
@@ -229,9 +234,9 @@ RSpec.describe Station do
       EndStation.create(station_id: 2)
 
 
-      trip = Trip.create(duration: 35, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
-      trip_2 = Trip.create(duration: 1175, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 2, bike_id: 2, subscription_type: 'Customer', zip_code: '90210')
-      trip_3 = Trip.create(duration: 235, start_date: 'Mon, 07 May 2013', end_date: 'Mon, 07 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90211')
+      trip = Trip.create(duration: 35, start_station_id: 1, end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
+      trip_2 = Trip.create(duration: 1175, start_station_id: 1, end_station_id: 2, bike_id: 2, subscription_type: 'Customer', zip_code: '90210')
+      trip_3 = Trip.create(duration: 235, start_station_id: 1, end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90211')
 
       result = a.most_frequent_zipcode
 

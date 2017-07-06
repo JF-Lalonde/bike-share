@@ -96,7 +96,8 @@ class Station < ActiveRecord::Base
 
   def most_popular_departure_date
     station = self.start_trips
-    station.group(:start_date).order("count_id DESC").count(:id).keys.first
+    station_one = station.group(:start_date).order("count_id DESC").count(:id).keys.first
+    station_one.all_date
   end
 
   def most_frequent_zipcode

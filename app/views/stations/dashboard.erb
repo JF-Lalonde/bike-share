@@ -28,6 +28,18 @@
       <h3>Oldest station:</h3><p>
         <% @station.oldest_station.each do |station| %></p>
         <h4><%= station.name %>, <%= station.city.name %> </h4>
-        <% end %>
+        <h3>Number of Rides Started at this Station:</h3><p>
+          <h4><%= station.rides_started %> Rides </h4>
+        <h3>Number of Rides Ended at this Station:</h3><p>
+          <h4><%= station.rides_ended %> Rides </h4>
+        <h3>Most popular destination station:</h3><p>
+          <h4><%= station.most_popular_destination.name %> </h4>
+        <h3>Most popular origin station:</h3><p>
+          <h4><%= station.most_popular_origins.name %> </h4>
+        <h3>Most popular departure date:</h3><p>
+          <h4><%= station.most_popular_departure_date.todays_date %> </h4>
+        <h3>Most frequent starting zip code:</h3><p>
+          <h4><%= station.most_frequent_zipcode %> </h4>
+          <% end %>
     </body>
   </html>
