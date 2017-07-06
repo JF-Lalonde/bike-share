@@ -10,10 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170705235121) do
+ActiveRecord::Schema.define(version: 20170706011803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "all_dates", force: :cascade do |t|
+    t.date "todays_date"
+  end
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
@@ -49,11 +53,7 @@ ActiveRecord::Schema.define(version: 20170705235121) do
     t.integer  "date_id"
   end
 
-  create_table "dates", force: :cascade do |t|
-    t.date "todays_date"
-  end
-
-  create_table "end_ends", force: :cascade do |t|
+  create_table "end_dates", force: :cascade do |t|
     t.integer "date_id"
   end
 
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20170705235121) do
     t.float    "lat"
     t.float    "long"
     t.integer  "dock_count"
+    t.string   "city"
     t.date     "installation_date"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false

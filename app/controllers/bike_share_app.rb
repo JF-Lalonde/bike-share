@@ -129,4 +129,6 @@ class BikeShareApp < Sinatra::Base
     Condition.destroy(params[:id].to_i)
     redirect "/conditions"
   end
+
+  get "/weather"
 end

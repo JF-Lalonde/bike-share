@@ -9,6 +9,7 @@ require_all './db/tbl'
 require 'CSV'
 require 'Date'
 require 'active_support/core_ext'
+require './db/tbl/seed_dates.rb'
 
 
 class Seeds
@@ -55,10 +56,26 @@ class Seeds
     SeedCondition.seed_conditions_table
   end
 
-  
+  def seed_dates_tables
+    SeedDates.seed_table_date
+  end
+
+  def seed_conditions_with_date_id
+    UpdateDateIDandConditions.seed_date_id_in_conditions
+  end
+
+  def seed_start_and_end_date_tables
+    SeedStartAndEndDateTables.make_start_date_table
+    SeedStartAndEndDateTables.make_end_date_table
+  end
+
+  def update_start_end_dates_in_trips
+    TripsUpdateStartandEndDateIDs.update_start_date_id_in_trips
+    TripsUpdateStartandEndDateIDs.update_end_date_id_in_trips
+  end
 end
 
 a = Seeds.new
-a.update_start_and_end_station_ids_in_trips
+a.update_start_end_dates_in_trips
 
 puts "database seeded"
