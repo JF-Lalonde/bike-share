@@ -3,6 +3,7 @@ require 'will_paginate/active_record'
 require './app/models/station.rb'
 require './app/models/start_station.rb'
 require './app/models/end_station.rb'
+require './app/models/condition.rb'
 require 'Date'
 
 
@@ -10,6 +11,8 @@ class Trip < ActiveRecord::Base
   belongs_to :station
   belongs_to :start_station
   belongs_to :end_station
+  belongs_to :start_date
+  belongs_to :end_date
   validates :duration, presence: true
   validates :start_station_name, presence: true
   validates :start_station_id, presence: true
@@ -84,9 +87,30 @@ class Trip < ActiveRecord::Base
     Trip.where(start_date: date)
   end
 
+  def start_date
+    start_date = StartDate.find(self.start_date_id)
+    AllDate.find(start_date.date_id).todays_date
+  end
+
+  def end_date
+    end_date = EndDate.find(self.end_date_id)
+    AllDate.find(end_date.date_id).todays_date
+  end
+
   def self.least_popular_date
     date = Trip.group(:start_date).order("count_id").limit(1).count(:id).keys.first
     Trip.where(start_date: date)
   end
 
+  def self.most_popular_date_weather
+    date = Trip.most_popular_date.first.start_date
+    date_id = AllDate.find_by(todays_date: date).id
+    Condition.find_by(date_id: date_id)
+  end
+
+  def self.least_popular_date_weather
+    date = Trip.least_popular_date.first.start_date
+    date_id = AllDate.find_by(todays_date: date).id
+    Condition.find_by(date_id: date_id)
+  end
 end
