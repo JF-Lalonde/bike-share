@@ -151,8 +151,8 @@ RSpec.describe Trip do
       trip_2 = Trip.create(duration: 1175, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 3, bike_id: 2, subscription_type: 'Subscriber', zip_code: '90210')
       trip_3 = Trip.create(duration: 235, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 3, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
 
-      bike_most_usage  = Trip.most_ridden_bike
-      bike_least_usage = Trip.least_ridden_bike
+      bike_most_usage  = Trip.most_ridden_bike.keys
+      bike_least_usage = Trip.least_ridden_bike.keys
 
       expect(bike_most_usage).to eq([7])
       expect(bike_least_usage).to eq([2])
