@@ -47,7 +47,6 @@ class Trip < ActiveRecord::Base
     (Trip.pluck(:duration).min)
   end
 
-
   def self.station_with_most_start_trips
     station = Trip.group(:start_station).order("count_id DESC").limit(1).count(:id)
     station.keys.first.station
@@ -91,4 +90,5 @@ class Trip < ActiveRecord::Base
     date = Trip.group(:start_date).order("count_id").limit(1).count(:id).keys.first
     Trip.where(start_date: date)
   end
+
 end

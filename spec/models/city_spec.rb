@@ -7,7 +7,7 @@ RSpec.describe City do
       expect(city.id).to eq(1)
     end
 
-    it "is not validz without name" do
+    it "is not valid without name" do
       city = City.create
 
       expect(city).to_not be_valid
