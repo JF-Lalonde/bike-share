@@ -54,6 +54,8 @@ class Seeds
   def seed_table_conditions
     SeedCondition.seed_conditions_table
   end
+
+  
 end
 
 a = Seeds.new
