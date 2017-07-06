@@ -177,5 +177,15 @@ RSpec.describe Trip do
       expect(popular_trip_date.first.start_date.to_s).to eq("2013-05-06")
     end
 
+    it "will return least popular date" do
+      trip = Trip.create(duration: 35, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 3, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
+      trip_2 = Trip.create(duration: 1175, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 3, bike_id: 2, subscription_type: 'Subscriber', zip_code: '90210')
+      trip_3 = Trip.create(duration: 88, start_date: 'Tues, 07 May 2013', end_date: 'Tues, 07 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 3, bike_id: 3, subscription_type: 'Customer', zip_code: '90210')
+
+      unpopular_trip_date  = Trip.least_popular_date
+
+      expect(unpopular_trip_date.first.start_date.to_s).to eq("2013-05-07")
+    end
+
   end
 end
