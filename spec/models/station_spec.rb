@@ -119,12 +119,67 @@ RSpec.describe Station do
       expect(result[0]).to eq(st)
     end
 
-    it "will validate the name change" do
+    it "will validate the name change for necessary stations" do
       st = Station.create(name: "San Jose Government Center", dock_count: 22, city_id: 4, installation_date: 'Sat, 08 Jun 2012')
+      st_2 = Station.create(name: "San Diego", dock_count: 22, city_id: 4, installation_date: 'Sat, 08 Jun 2012')
 
       result = Station.validate_name_change(st.name)
+      result_2 = Station.validate_name_change(st_2.name)
 
       expect(result).to eq("Santa Clara County Civic Center")
+      expect(result_2).to eq("San Diego")
+    end
+
+    it "will return the amount of started trips for a station" do
+      a = Station.create(name: "Penn", city_id: 1, dock_count: 5, installation_date: "Mon, 06 May 2013")
+      b = Station.create(name: "Union", city_id: 1, dock_count: 5, installation_date: "Mon, 06 May 2013")
+      StartStation.create(station_id: 1)
+      StartStation.create(station_id: 2)
+      trip = Trip.create(duration: 35, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
+      trip_2 = Trip.create(duration: 1175, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Union', start_station_id: 2, end_station_name: 'Penn', end_station_id: 1, bike_id: 2, subscription_type: 'Customer', zip_code: '90210')
+      trip_3 = Trip.create(duration: 235, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
+
+      result = a.rides_started
+      result_2 = b.rides_started
+
+      expect(result).to eq(2)
+      expect(result_2).to eq(1)
+    end
+
+    it "will return the amount of ended trips for a station" do
+      a = Station.create(name: "Penn", city_id: 1, dock_count: 5, installation_date: "Mon, 06 May 2013")
+      b = Station.create(name: "Union", city_id: 1, dock_count: 5, installation_date: "Mon, 06 May 2013")
+      EndStation.create(station_id: 1)
+      EndStation.create(station_id: 2)
+      trip = Trip.create(duration: 35, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
+      trip_2 = Trip.create(duration: 1175, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Union', start_station_id: 2, end_station_name: 'Penn', end_station_id: 1, bike_id: 2, subscription_type: 'Customer', zip_code: '90210')
+      trip_3 = Trip.create(duration: 235, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
+
+      result = a.rides_ended
+      result_2 = b.rides_ended
+
+      expect(result).to eq(1)
+      expect(result_2).to eq(2)
+    end
+
+    it "will return the most popular destination" do
+      a = Station.create(name: "Penn", city_id: 1, dock_count: 5, installation_date: "Mon, 06 May 2013")
+      b = Station.create(name: "Union", city_id: 1, dock_count: 5, installation_date: "Mon, 06 May 2013")
+      StartStation.create(station_id: 1)
+      StartStation.create(station_id: 2)
+      EndStation.create(station_id: 1)
+      EndStation.create(station_id: 2)
+
+
+      trip = Trip.create(duration: 35, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
+      trip_2 = Trip.create(duration: 1175, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Union', start_station_id: 2, end_station_name: 'Penn', end_station_id: 1, bike_id: 2, subscription_type: 'Customer', zip_code: '90210')
+      trip_3 = Trip.create(duration: 235, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
+
+      result = a.most_popular_destination
+      result_2 = b.most_popular_destination
+
+      expect(result.name).to eq("Union")
+      expect(result_2.name).to eq("Penn")
     end
 
   end
