@@ -1,0 +1,28 @@
+  h1 {
+    font-family: futura;
+    color: #15048E;
+    text-align: center;
+    font-size: 50px;
+  }
+
+  a h2 {
+    text-align: center;
+    font-style: futura;
+    padding-bottom: 40px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a :hover {
+    color: white;
+  }
+
+  body {
+    background-color: #518CD8;
+  }
+
+  h3 {
+    font-family: futura;
+  }
