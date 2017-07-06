@@ -41,3 +41,10 @@
   h3 {
     font-family: futura;
   }
+
+  .footer  {
+    text-align: center;
+    font-family: futura;
+    margin-top: 30px;
+    font-size: 20px;
+  }

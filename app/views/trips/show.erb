@@ -6,7 +6,8 @@
     <title></title>
   </head>
   <body>
-    <a href="/trips">Go Back</a>
+    <h2><%= @trip.id %></h2>
+    <div class="contain">
     <h3>Duration: </h3><p><%= @trip.duration %></p>
     <h3>Start station: </h3><p><%= @trip.start_station_name %></p>
     <h3>End station: </h3><p><%= @trip.end_station_name %></p>
@@ -14,5 +15,10 @@
       <input type="hidden" name="_method" value="DELETE">
       <input type="submit" value="delete"/>
     </form>
+  </div>
+  <div class ="footer">
+    <a href="/stations">Go Back</a> ||
+    <a href="/stations/new">Add station</a>
+  </div>
   </body>
 </html>

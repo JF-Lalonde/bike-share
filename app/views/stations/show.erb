@@ -5,8 +5,6 @@
     <title>Bike Share</title>
   </head>
   <body>
-    <a href="/stations">Go Back</a>
-    <a href="/stations/new">Add station</a>
     <h2><%= @station.name %></h2>
     <div class="contain">
     <h3>Dock Count: </h3><p><%= @station.dock_count %></p>
@@ -17,6 +15,10 @@
       <input type="hidden" name="_method" value="DELETE">
       <input type="submit" value="delete"/>
     </form>
+  </div>
+  <div class ="footer">
+    <a href="/stations">Go Back</a> ||
+    <a href="/stations/new">Add station</a>
   </div>
   </body>
 </html>
