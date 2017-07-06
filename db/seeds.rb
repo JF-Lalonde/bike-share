@@ -68,9 +68,14 @@ class Seeds
     SeedStartAndEndDateTables.make_start_date_table
     SeedStartAndEndDateTables.make_end_date_table
   end
+
+  def update_start_end_dates_in_trips
+    TripsUpdateStartandEndDateIDs.update_start_date_id_in_trips
+    TripsUpdateStartandEndDateIDs.update_end_date_id_in_trips
+  end
 end
 
 a = Seeds.new
-a.seed_start_and_end_date_tables
+a.update_start_end_dates_in_trips
 
 puts "database seeded"
