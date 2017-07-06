@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="../dash-style.css"/>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
+    <h1>Condition</h1>
+    <div class="contain">
       <p><%= @condition.this_date %></p>
       <p><%= @condition.max_temperature_f %></p>
       <p><%= @condition.mean_temperature_f %></p>
@@ -17,5 +20,6 @@
       <input type="hidden" name="_method" value="DELETE">
       <input type="submit" value="delete"/>
     </form>
+  </div>
   </body>
 </html>
