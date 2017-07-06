@@ -1,4 +1,5 @@
 class Condition < ActiveRecord::Base
+  belongs_to :all_date
   validates :this_date, presence: true
   validates :max_temperature_f, presence: true
   validates :mean_temperature_f, presence: true
@@ -12,5 +13,5 @@ class Condition < ActiveRecord::Base
     30
   end
 
-  
+
 end
