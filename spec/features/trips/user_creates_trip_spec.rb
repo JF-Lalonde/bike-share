@@ -1,7 +1,7 @@
-RSpec.describe "User generates Trip and saves" do
-  it "with valid attributes" do
+RSpec.describe "When a user visits /trips/new" do
+  it "they see a form and can generate a new trip" do
 
-    StartStation.create(name: "Penn", city_id: 1, dock_count: 5, installation_date: "Mon, 06 May 2013")
+    Station.create(name: "Penn", city_id: 1, dock_count: 5, installation_date: "Mon, 06 May 2013")
 
 
     visit('/trips/new')
