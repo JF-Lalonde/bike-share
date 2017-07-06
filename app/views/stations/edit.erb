@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="../dash-style.css"/>
     <title>Bike Share World!</title>
   </head>
   <body>
-    <a href="/stations">Go Back</a>
+    <h3>Edit</h3>
+    <div class="contain">
     <form action="/stations/<%= @station.id %>" method="post">
       <input type="hidden" name="_method" value="PUT" />
       <input name='station[name]' value="<%= @station.name %>"/><br/>
@@ -13,5 +15,9 @@
       <input name='station[installation_date]' value="<%= @station.installation_date %>"</input><br/>
       <input type='submit'/>
     </form>
+  </div>
+    <div class="footer">
+      <a href="/stations">Go Back</a>
+    </div>
   </body>
 </html>

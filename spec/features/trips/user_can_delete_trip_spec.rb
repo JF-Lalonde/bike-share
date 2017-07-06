@@ -6,8 +6,7 @@ RSpec.describe "When a user visits /trips" do
     visit('/trips')
 
     expect(Trip.count).to eq(1)
-    select("delete", :from => "stations_holder")
-    # click_on("input[value ='delete']")
+
     expect(Trip.count).to eq(0)
   end
 
