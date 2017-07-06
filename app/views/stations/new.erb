@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="show-style.css"/>
+    <link rel="stylesheet" type="text/css" href="../show-style.css"/>
     <title>Bike Share World!</title>
   </head>
   <body>
-    <a href="/stations">Go Back</a>
     <h1>Add station</h1>
+    <div class="contain">
     <form action="/stations" method= "post">
       <label>Name</label>
       <input class="mytext" type= "text" name= "station[name]"><br/>
       <label>Dock Count</label>
       <input class="mytext" type= "text" name= "station[dock_count]"><br/>
       <label>City</label>
-      <input class="mytext" type= "text" name= "station[city]"><br/>
+      <input class="mytext" type= "text" name= "station[city_id]"><br/>
       <label>Installation Date</label>
       <input class="mytext" type= "text" name= "station[installation_date]"><br/>
       <input type= "submit">
     </form>
+  </div>
+    <div class="footer">
+    <a href="/stations">Go Back</a>
+  </div>
   </body>
 </html>
