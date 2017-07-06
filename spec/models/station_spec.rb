@@ -222,7 +222,7 @@ RSpec.describe Station do
 
       result = a.most_popular_departure_date
 
-      expect(result.all_date.todays_date.to_s).to eq('2013-05-08')
+      expect(result.todays_date.to_s).to eq('2013-05-08')
     end
 
     it "will return the most frequent zipcode" do

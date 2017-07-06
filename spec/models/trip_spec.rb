@@ -113,23 +113,6 @@ RSpec.describe Trip do
       expect(result.name).to eq("Penn")
     end
 
-    it "will return monthly ride breakdown" do
-      trip = Trip.create(duration: 75,    start_station_id: 1,  end_station_id: 3, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
-      trip_2 = Trip.create(duration: 175,    start_station_id: 1,  end_station_id: 3, bike_id: 2, subscription_type: 'Customer', zip_code: '90210')
-      month_breakdown = Trip.monthly_rides_breakdown(5, 2013)
-      # month_summary = month_breakdown.count
-
-      expect(month_breakdown).to eq(2)
-    end
-
-    it "will return yearly ride breakdown" do
-      trip = Trip.create(duration: 35,    start_station_id: 1,  end_station_id: 3, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
-      trip_2 = Trip.create(duration: 1175,    start_station_id: 1,  end_station_id: 3, bike_id: 2, subscription_type: 'Customer', zip_code: '90210')
-      yearly_breakdown = Trip.yearly_rides_breakdown(2013)
-
-      expect(yearly_breakdown).to eq(2)
-
-    end
     it "will return the most ridden bike and least ridden bike for all trips" do
       trip = Trip.create(duration: 35,    start_station_id: 1,  end_station_id: 3, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
       trip_2 = Trip.create(duration: 1175,    start_station_id: 1,  end_station_id: 3, bike_id: 2, subscription_type: 'Subscriber', zip_code: '90210')
@@ -150,26 +133,5 @@ RSpec.describe Trip do
 
       expect(subscriber_type).to eq("There are 1 number of Subscribers, or 50.0% of all riders. Conversely, there are 1 number of Customers, or 50.0% of all riders.")
     end
-
-    it "will return most popular date" do
-      trip = Trip.create(duration: 35,    start_station_id: 1,  end_station_id: 3, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
-      trip_2 = Trip.create(duration: 1175,    start_station_id: 1,  end_station_id: 3, bike_id: 2, subscription_type: 'Subscriber', zip_code: '90210')
-      trip_3 = Trip.create(duration: 88, start_station_id: 1,  end_station_id: 3, bike_id: 3, subscription_type: 'Customer', zip_code: '90210')
-
-      popular_trip_date  = Trip.most_popular_date
-
-      expect(popular_trip_date.first.start_date.to_s).to eq("2013-05-06")
-    end
-
-    it "will return least popular date" do
-      trip = Trip.create(duration: 35,    start_station_id: 1,  end_station_id: 3, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
-      trip_2 = Trip.create(duration: 1175,    start_station_id: 1,  end_station_id: 3, bike_id: 2, subscription_type: 'Subscriber', zip_code: '90210')
-      trip_3 = Trip.create(duration: 88, start_station_id: 1,  end_station_id: 3, bike_id: 3, subscription_type: 'Customer', zip_code: '90210')
-
-      unpopular_trip_date  = Trip.least_popular_date
-
-      expect(unpopular_trip_date.first.start_date.to_s).to eq("2013-05-07")
-    end
-
   end
 end
