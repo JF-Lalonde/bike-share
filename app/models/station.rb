@@ -104,4 +104,5 @@ class Station < ActiveRecord::Base
     station.group(:zip_code).order("count_id DESC").count(:id).keys.first
   end
 
+
 end

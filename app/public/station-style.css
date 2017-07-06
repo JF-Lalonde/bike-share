@@ -1,0 +1,52 @@
+  h1 {
+    font-family: futura;
+    color: #15048E;
+    text-align: center;
+    font-size: 50px;
+  }
+
+
+  a {
+    text-align: center;
+    font-style: futura;
+    text-decoration: none;
+  }
+
+  a :hover {
+    color: white;
+  }
+
+  .stations_holder form {
+    text-align: center;
+    text-decoration: none;
+    color: grey;
+  }
+
+  .stations_holder a {
+    text-align: center;
+    font-family: futura;
+    font-size: 18px;
+  }
+
+
+  .stations_holder {
+    border: 1px solid black;
+    margin: 15px;
+    margin-right: 11%;
+    margin-left: 11%;
+    float: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 380px;
+    text-align: center;
+  }
+
+  .stations_holder h2 {
+    text-align: center;
+    font-family: futura;
+    font-size: 20px;
+  }
+
+  body {
+    background-color: #518CD8;
+  }
