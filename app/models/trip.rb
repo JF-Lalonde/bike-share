@@ -66,13 +66,11 @@ class Trip < ActiveRecord::Base
   end
 
   def self.most_ridden_bike
-    bike = Trip.group(:bike_id).order("count_id DESC").limit(1).count(:id)
-    bike.keys
+    Trip.group(:bike_id).order("count_id DESC").limit(1).count(:id)
   end
 
   def self.least_ridden_bike
-    bike = Trip.group(:bike_id).order("count_id ASC").limit(1).count(:id)
-    bike.keys
+    Trip.group(:bike_id).order("count_id ASC").limit(1).count(:id)
   end
 
   def self.sub_type_breakdown
