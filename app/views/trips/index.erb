@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" type="text/css" href="dash-style.css"/>
+    <link rel="stylesheet" type="text/css" href="station-style.css"/>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
+    <h1>Trips</h1>
+    <a href="/"><h2>Home</h2></a>
+    <a href="/stations/new"><h2>Add Trips</h2></a>
+    <a href="/station-dashboard"><h2>Trip Analytics</h2></a>
     <%@trips.each do |trip|%>
-      <h3><%= trip.start_station_name %></h3>
+    <div class="stations_holder">
+      <a href=''<h2><%= trip.start_station_name %></h2>
       <h3><%= trip.duration %></h3>
       <h3><%= trip.start_date %></h3>
       <h3><%= trip.end_date %></h3>
@@ -19,6 +24,7 @@
         <input type="hidden" name="_method" value="DELETE">
         <input type="submit" value="delete"/>
       </form>
+    </div>
     <% end %>
     <h3><%= will_paginate @pages %></h3>
   </body>

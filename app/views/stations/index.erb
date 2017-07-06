@@ -11,8 +11,8 @@
     <a href="/station-dashboard"><h2>Station Analytics</h2></a>
       <% @stations.each do |station| %>
       <div class="stations_holder">
-        <a href="/stations/<%= station.id %>"</a>
-          <h3><%= station.name %></h3>
+        <a href="/stations/<%= station.id %>"
+          <h3><%= station.name %></h3></a>
         <h4>Dock Count: <%= station.dock_count %></h4>
       <a href="/stations/<%= station.id  %>/edit">Edit</a>
       <form action="/stations/<%= station.id%>" method="POST">
