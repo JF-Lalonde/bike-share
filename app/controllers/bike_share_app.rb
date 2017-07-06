@@ -74,7 +74,7 @@ class BikeShareApp < Sinatra::Base
   end
 
   get "/trips/:id" do
-    @trip = Trip.find(params[:id].to_i)
+    @trip = Trip.find(params[:id].to_i) unless params[:id].to_i == 0
     erb :"trips/show"
   end
 
