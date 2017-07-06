@@ -14,6 +14,35 @@ class Condition < ActiveRecord::Base
   end
 
   def self.list_conditions(start, stop)
-    Condition.where(max_temperature_f: start..stop).order('max_temperature_f ASC')
+    range = [*start..stop].uniq
+    conditions = Condition.where(max_temperature_f: range).order('max_temperature_f ASC')
+    array = conditions.map do |condition|
+      condition.start_trips.count
+    end
+  end
+
+  def self.max_rides
+    list_conditions(start, stop).max
+  end
+
+  def self.min_rides(start, stop)
+    list_conditions(start, stop).min
+  end
+
+  def self.avg_rides(start, stop)
+    (list_conditions(start, stop).reduce(:+)/
+    list_conditions(start, stop).count)
+  end
+
+  def all_date
+    AllDate.find(self.date_id)
+  end
+
+  def start_trips
+    all_date.start_trips
+  end
+
+  def end_trips
+    all_date.end_trips
   end
 end
