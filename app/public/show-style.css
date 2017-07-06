@@ -1,0 +1,28 @@
+  label {
+    font-size: 20px;
+    position: absolute;
+  }
+
+  input[type="text"] {
+    margin-left: 100px;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  li {
+      display: inline;
+      color: black;
+      padding-left: 20px;
+      padding-right: 20px;
+      font-family: Futura;
+      font-size: 32px;
+  }
+
+  h1 {
+    font-family: futura;
+    text-align: center;
+  }

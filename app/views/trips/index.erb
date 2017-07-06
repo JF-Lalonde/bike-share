@@ -7,19 +7,19 @@
   </head>
   <body>
     <%@trips.each do |trip|%>
-      <p><%= trip.start_station_name %></p>
-      <p><%= trip.duration %></p>
-      <p><%= trip.start_date %></p>
-      <p><%= trip.end_date %></p>
-      <p><%= trip.end_station_name %></p>
-      <p><%= trip.bike_id %></p>
-      <p><%= trip.subscription_type %></p>
-      <p><%= trip.zip_code %></p>
+      <h3><%= trip.start_station_name %></h3>
+      <h3><%= trip.duration %></h3>
+      <h3><%= trip.start_date %></h3>
+      <h3><%= trip.end_date %></h3>
+      <h3><%= trip.end_station_name %></h3>
+      <h3><%= trip.bike_id %></h3>
+      <h3><%= trip.subscription_type %></h3>
+      <h3><%= trip.zip_code %></h3>
       <form action="/trips/<%= trip.id%>" method="POST">
         <input type="hidden" name="_method" value="DELETE">
         <input type="submit" value="delete"/>
       </form>
     <% end %>
-    <p><%= will_paginate @pages %></p>
+    <h3><%= will_paginate @pages %></h3>
   </body>
 </html>
