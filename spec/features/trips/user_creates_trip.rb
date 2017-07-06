@@ -1,4 +1,4 @@
-RSpec.desribe "User generates Trip" do
+RSpec.describe "User generates Trip" do
   it "with valid attributes" do
     visit('/trips/new')
     fill_in("trip[duration]", with: 24)
@@ -11,5 +11,12 @@ RSpec.desribe "User generates Trip" do
     fill_in("trip[bike_id]", with: 88)
     fill_in("trip[subscription_type]", with: "Customer")
     fill_in("trip[zip_code]", with: "90210")
+
+    click_button("Submit")
+
+    trip = Trip.last
+
+    expect(current_path).to eq("/trips/#{trip.id}")
+    expect(page).to have_content("Union")
   end
 end
