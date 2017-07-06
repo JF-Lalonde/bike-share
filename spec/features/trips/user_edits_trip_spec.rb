@@ -26,4 +26,8 @@ RSpec.describe "When a user visits /trips/{:id}/edit" do
     # expect(page).to have_content("Union")
     expect(new_count - old_count).to eq(0)
   end
+
+  
+
+
 end
