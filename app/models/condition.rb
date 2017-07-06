@@ -11,4 +11,6 @@ class Condition < ActiveRecord::Base
   def self.per_page
     30
   end
+
+  
 end
