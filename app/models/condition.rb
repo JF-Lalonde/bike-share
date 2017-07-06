@@ -13,5 +13,7 @@ class Condition < ActiveRecord::Base
     30
   end
 
-  
+  def self.list_conditions(start, stop)
+    Condition.where(max_temperature_f: start..stop).order('max_temperature_f ASC')
+  end
 end
