@@ -1,7 +1,9 @@
-RSpec.describe "User visits '/'" do
-  it "and sees dashboard" do
-    visit('/')
+RSpec.describe "User visits '/stations'" do
+  it "and sees the index for stations" do
+    visit('/stations')
+    click_link('Add Station')
 
-    expect(page).to have_content("Station")
+    expect(current_path).to eq("/stations/new")
+    expect(page).to have_content('Go Back')
   end
 end
