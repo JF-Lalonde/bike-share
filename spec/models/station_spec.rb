@@ -118,5 +118,14 @@ RSpec.describe Station do
 
       expect(result[0]).to eq(st)
     end
+
+    it "will validate the name change" do
+      st = Station.create(name: "San Jose Government Center", dock_count: 22, city_id: 4, installation_date: 'Sat, 08 Jun 2012')
+
+      result = Station.validate_name_change(st.name)
+
+      expect(result).to eq("Santa Clara County Civic Center")
+    end
+
   end
 end
