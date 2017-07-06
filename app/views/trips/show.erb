@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="../dash-style.css"/>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
-      <p><%= @trip.start_station %></p>
-      <p><%= @trip.duration %></p>
-      <p><%= @trip.start_date %></p>
-      <p><%= @trip.end_date %></p>
-      <p><%= @trip.end_station %></p>
-      <p><%= @trip.bike_id %></p>
-      <p><%= @trip.subscription_type %></p>
-      <p><%= @trip.zip_code %></p>
-    <form action="/trips/<%= trip.id%>" method="POST">
+    <a href="/trips">Go Back</a>
+    <h3>Duration: </h3><p><%= @trip.duration %></p>
+    <h3>Start station: </h3><p><%= @trip.start_station_name %></p>
+    <h3>End station: </h3><p><%= @trip.end_station_name %></p>
+    <form action="/trips/<%= @trip.id%>" method="POST">
       <input type="hidden" name="_method" value="DELETE">
       <input type="submit" value="delete"/>
     </form>

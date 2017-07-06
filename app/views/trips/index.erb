@@ -8,18 +8,14 @@
   <body>
     <h1>Trips</h1>
     <a href="/"><h2>Home</h2></a>
-    <a href="/stations/new"><h2>Add Trips</h2></a>
-    <a href="/station-dashboard"><h2>Trip Analytics</h2></a>
+    <a href="/trips/new"><h2>Add Trip</h2></a>
+    <a href="/trip-dashboard"><h2>Trip Analytics</h2></a>
     <%@trips.each do |trip|%>
     <div class="stations_holder">
-      <a href=''<h2><%= trip.start_station_name %></h2>
-      <h3><%= trip.duration %></h3>
-      <h3><%= trip.start_date %></h3>
-      <h3><%= trip.end_date %></h3>
-      <h3><%= trip.end_station_name %></h3>
-      <h3><%= trip.bike_id %></h3>
-      <h3><%= trip.subscription_type %></h3>
-      <h3><%= trip.zip_code %></h3>
+      <a href="/trips/<%= trip.id %>"><%= trip.id %></a>
+      <h3>Duration: </h3><p><%= trip.duration %></p>
+      <h3>Start station: </h3><p><%= trip.start_station_name %></p>
+      <h3>End station: </h3><p><%= trip.end_station_name %></p>
       <form action="/trips/<%= trip.id%>" method="POST">
         <input type="hidden" name="_method" value="DELETE">
         <input type="submit" value="delete"/>
