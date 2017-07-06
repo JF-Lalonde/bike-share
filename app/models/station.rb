@@ -106,6 +106,6 @@ class Station < ActiveRecord::Base
 
   def most_frequent_zipcode
     station = Station.first.start_trips
-    station.group(:bike_id).order("count_id DESC").count(:id).keys.first
+      station.group(:bike_id).order("count_id DESC").count(:id).keys.first
   end
 end
