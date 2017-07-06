@@ -13,5 +13,5 @@ class Condition < ActiveRecord::Base
     30
   end
 
-
+  
 end

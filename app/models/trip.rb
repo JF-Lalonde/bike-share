@@ -3,6 +3,7 @@ require 'will_paginate/active_record'
 require './app/models/station.rb'
 require './app/models/start_station.rb'
 require './app/models/end_station.rb'
+require './app/models/condition.rb'
 require 'Date'
 
 
@@ -101,4 +102,15 @@ class Trip < ActiveRecord::Base
     Trip.where(start_date: date)
   end
 
+  def self.most_popular_date_weather
+    date = Trip.most_popular_date.first.start_date
+    date_id = AllDate.find_by(todays_date: date).id
+    Condition.find_by(date_id: date_id)
+  end
+
+  def self.least_popular_date_weather
+    date = Trip.least_popular_date.first.start_date
+    date_id = AllDate.find_by(todays_date: date).id
+    Condition.find_by(date_id: date_id)
+  end
 end
