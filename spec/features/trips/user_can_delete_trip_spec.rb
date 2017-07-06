@@ -6,7 +6,7 @@ RSpec.describe "When a user can visits /trips" do
     visit('/trips')
 
     expect(Trip.count).to eq(1)
-    click_on("input[value ='delete']")
+    click_link_or_button("input[value ='delete']")
     expect(Trip.count).to eq(0)
   end
 end

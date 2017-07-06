@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" type="text/css" href="../dash-style.css"/>
     <title>Bike Share World!</title>
   </head>
   <body>
-    <a href="/trips">Go Back</a>
+    <h3>Edit</h3>
+    <div class="contain">
     <form action="/trips/<%= @trip.id %>" method="post">
       <input type="hidden" name="_method" value="PUT" />
       <input name='trip[duration]' value="<%= @trip.duration %>"/><br/>
@@ -17,5 +19,9 @@
       <input name='trip[zip_code]' value="<%= @trip.zip_code %>"</input><br/>
       <input type='submit'/>
     </form>
+  </div>
+    <div class="footer">
+      <a href="/trips">Go Back</a>
+    </div>
   </body>
 </html>
