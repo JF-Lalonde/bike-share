@@ -101,6 +101,21 @@ RSpec.describe Trip do
       expect(shortest_trip).to eq(35)
     end
 
+    it "will return the station with the most start trips" do
+      Station.create(name: "Union", city_id: 1, dock_count: 5, installation_date: "Mon, 06 May 2013")
+      Station.create(name: "Penn", city_id: 1, dock_count: 5, installation_date: "Mon, 06 May 2013")
+      StartStation.create(station_id: 1)
+      StartStation.create(station_id: 2)
+      trip = Trip.create(duration: 35, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 3, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
+      trip_2 = Trip.create(duration: 1175, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Union', start_station_id: 2, end_station_name: 'Penn', end_station_id: 1, bike_id: 2, subscription_type: 'Customer', zip_code: '90210')
+      trip_3 = Trip.create(duration: 235, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 3, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
+
+      result = Trip.station_with_most_start_trips
+
+      expect(result.name).to eq("Penn")
+    end
+
+
     it "will return monthly ride breakdown" do
       trip = Trip.create(duration: 75, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 3, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
       trip_2 = Trip.create(duration: 175, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 3, bike_id: 2, subscription_type: 'Customer', zip_code: '90210')
@@ -139,6 +154,8 @@ RSpec.describe Trip do
       expect(subscriber_type).to eq("There are 1 number of Subscribers, or 50.0% of all riders. Conversely, there are 1 number of Customers, or 50.0% of all riders.")
     end
 
+
+
   end
 end
-#a 
+#a
