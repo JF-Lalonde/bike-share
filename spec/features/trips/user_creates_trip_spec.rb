@@ -1,10 +1,14 @@
-RSpec.describe "User generates Trip and saves" do
-  it "with valid attributes" do
+RSpec.describe "When a user visits /trips/new" do
+  it "they see a form and can generate a new trip" do
+
+    Station.create(name: "Penn", city_id: 1, dock_count: 5, installation_date: "Mon, 06 May 2013")
+
+
     visit('/trips/new')
     fill_in("trip[duration]", with: 24)
-    fill_in("trip[start_station]", with: "Penn")
+    fill_in("trip[start_station_name]", with: "Penn")
     # fill_in("trip[start_station_id]", with: 1)
-    fill_in("trip[end_station]", with: "Union")
+    fill_in("trip[end_station_name]", with: "Union")
     # fill_in("trip[end_station_id]", with: 2)
     fill_in("trip[start_date]", with: 'Mon, 06 May 2013')
     fill_in("trip[end_date]", with: 'Mon, 06 May 2013')
@@ -13,7 +17,7 @@ RSpec.describe "User generates Trip and saves" do
     fill_in("trip[zip_code]", with: "90210")
     old_count = Trip.count
 
-    choose("submit")
+    find("input[type='submit']").click
     new_count = Trip.count
     trip = Trip.last
 

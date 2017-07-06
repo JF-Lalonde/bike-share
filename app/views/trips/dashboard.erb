@@ -8,7 +8,7 @@
   <body>
     <h1>Trips Analytics</h1>
     <body>
-      <a href="/trips">Trips</a>
+      <h2><a href="/trips">Trips</a></h2>
       <h2>Average duration of a ride:</h2><p> <%= Trip.average_duration_of_a_ride %></p>
       <h2>Longest Ride:</h2><p><%= Trip.longest_ride %></p>
       <h2>Shortest Ride:</h2><p><%= Trip.shortest_ride %></p>
@@ -62,9 +62,9 @@
       <%= Trip.least_ridden_bike.keys[0] %></p><p>Times ridden: <%= Trip.least_ridden_bike.values[0] %></p>
       <h2>User subscription type</h2><p><%= Trip.sub_type_breakdown %></p>
 
-      ####Need to add trips sub ptags
-    
-      <h2>Single Date with highest amount of trips</h2><p><%= Trip.most_popular_date %></p>
-      <h2>Single Date with lowest amount of trips</h2><p><%= Trip.least_popular_date %></p>
+      <h2>Single Date with highest amount of trips</h2><p><%= Trip.most_popular_date.first.start_date %></p>
+      <p><%= Trip.most_popular_date.count %></p>
+      <h2>Single Date with lowest amount of trips</h2><p><%= Trip.least_popular_date.first.start_date %></p>
+      <p><%= Trip.least_popular_date.count %></p>
     </body>
   </html>

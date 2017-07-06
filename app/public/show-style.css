@@ -3,8 +3,12 @@
     position: absolute;
   }
 
+  body {
+    background-color: #518CD8;
+  }
+
   input[type="text"] {
-    margin-left: 100px;
+    margin-left: 150px;
   }
 
   ul {
@@ -25,4 +29,34 @@
   h1 {
     font-family: futura;
     text-align: center;
+  }
+
+  input[type=submit] {
+    font-family: futura;
+    background-color: #AFD0F0;
+    color: black;
+    margin: 7px 1px;
+    border: 2px solid black;
+    border-radius: 5px;
+
+  }
+
+  input[type="submit"]:hover{
+    font-size: 13px;
+  }
+
+  .footer  {
+    text-align: center;
+    font-family: futura;
+    margin-top: 30px;
+    font-size: 20px;
+  }
+
+  .contain {
+    text-align: center;
+    border: 2px solid black;
+    margin-left: 500px;
+    margin-right: 500px;
+    padding-bottom: 20px;
+    padding-top: 10px;
   }

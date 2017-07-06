@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="show-style.css"/>
+    <link rel="stylesheet" type="text/css" href="../dash-style.css"/>
     <title>Bike Share</title>
   </head>
   <body>
-    <a href="/stations">Go Back</a>
+    <h2><%= @station.name %></h2>
+    <div class="contain">
+    <h3>Dock Count: </h3><p><%= @station.dock_count %></p>
+    <h3>Installation Date: </h3><p><%= @station.installation_date %></p>
+    <h3>Number of started rides: </h3><p><%= @station.start_trips.count %></p>
+    <h3>Number of ended rides: </h3><p><%= @station.end_trips.count %></p>
+    <form action="/stations/<%= @station.id%>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="delete"/>
+    </form>
+  </div>
+  <div class ="footer">
+    <a href="/stations">Go Back</a> ||
     <a href="/stations/new">Add station</a>
-    <h1><%= @station.name %></h1>
-    <p><%= @station.dock_count %></p>
-    <p><%= @station.installation_date %></p>
-    <p>Number of started rides: <%= @station.start_trips %></p>
-    <p>Number of ended rides: <%= @station.end_trips %></p>
+  </div>
   </body>
 </html>

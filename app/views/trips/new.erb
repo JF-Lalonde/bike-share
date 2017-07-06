@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="../show-style.css"/>
     <title>Bike Share World!</title>
   </head>
   <body>
-    <a href="/trips">Go Back</a>
     <h1>Add trip</h1>
+    <div class="contain">
     <form action="/trips" method= "post">
       <label>Duration</label>
       <input class="mytext" type= "text" name= "trip[duration]"><br/>
@@ -25,5 +26,9 @@
       <input class="mytext" type= "text" name= "trip[zip_code]"><br/>
       <input type= "submit">
     </form>
+  </div>
+    <div class="footer">
+      <a href="/trips">Go Back</a>
+    </div>
   </body>
 </html>

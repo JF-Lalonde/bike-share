@@ -5,10 +5,24 @@
     font-size: 50px;
   }
 
-  a h2 {
+  h2 a{
     text-align: center;
-    font-style: futura;
     padding-bottom: 40px;
+  }
+
+  h2 {
+    text-align: center;
+    font-family: futura;
+    color: #15048E;
+
+  }
+
+  .contain {
+    text-align: center;
+    border: 2px solid black;
+    margin-left: 500px;
+    margin-right: 500px;
+    padding-bottom: 20px;
   }
 
   a {
@@ -26,4 +40,25 @@
 
   h3 {
     font-family: futura;
+  }
+
+  .footer  {
+    text-align: center;
+    font-family: futura;
+    margin-top: 30px;
+    font-size: 20px;
+  }
+
+  input[type=submit] {
+    font-family: futura;
+    background-color: #AFD0F0;
+    color: black;
+    margin: 7px 1px;
+    border: 2px solid black;
+    border-radius: 5px;
+
+  }
+
+  input[type="submit"]:hover{
+    font-size: 13px;
   }
