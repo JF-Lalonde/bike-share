@@ -2,31 +2,32 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="dash-style.css"/>
     <title>Station Dashboard World!</title>
   </head>
   <body>
-    <h1>Stations Info </h1>
+    <h1>Station Analytics</h1>
     <body>
-      <a href="/stations">Go Back</a>
-      <p>Total Count of Stations: <%= Station.count %></p>
-      <p>Average Bikes Available Per Station: <%= @station.avg_bikes_per_station %></p>
-      <p>Most Bikes Available at a Station: <%= @station.most_bikes %></p>
-      <p>Station(s) where the most bikes are available: </p>
-        <% @station.stations_with_most_bikes.each do |station| %>
-          <h5><%= station.name%>, <%= station.city.name%> </h5>
+      <a href="/stations"><h2>Stations</h2></a>
+      <h3>Total Count of Stations:</h3> <p><%= Station.count %></p>
+      <h3>Average Bikes Available Per Station:</h3> <p><%= @station.avg_bikes_per_station %></p>
+      <h3>Most Bikes Available at a Station:</h3> <p><%= @station.most_bikes %></p>
+      <h3>Station(s) where the most bikes are available:</h3><p>
+        <% @station.stations_with_most_bikes.each do |station| %></p>
+          <h4><%= station.name%>, <%= station.city.name%> </h4>
           <% end %>
-      <p>Fewest bikes available at a station: <%= @station.least_bikes %></p>
-      <p>Station(s) where the fewest bikes are available:</p>
-        <% @station.stations_with_least_bikes.each do |station| %>
-          <h5><%= station.name%>, <%= station.city.name%> </h5>
+      <h3>Fewest bikes available at a station:</h3> <p><%= @station.least_bikes %></p>
+      <h3>Station(s) where the fewest bikes are available:</h3><p>
+        <% @station.stations_with_least_bikes.each do |station| %></p>
+          <h4><%= station.name%>, <%= station.city.name%> </h4>
           <% end %>
-      <p>Most recently installed station:</p>
-        <% @station.newest_station.each do |station| %>
-        <h5><%= station.name %>, <%= station.city.name %> </h5>
+      <h3>Most recently installed station:</h3><p>
+        <% @station.newest_station.each do |station| %></p>
+        <h4><%= station.name %>, <%= station.city.name %> </h4>
         <% end %>
-      <p>Oldest station:</p>
-        <% @station.oldest_station.each do |station| %>
-        <h5><%= station.name %>, <%= station.city.name %> </h5>
+      <h3>Oldest station:</h3><p>
+        <% @station.oldest_station.each do |station| %></p>
+        <h4><%= station.name %>, <%= station.city.name %> </h4>
         <% end %>
     </body>
   </html>
