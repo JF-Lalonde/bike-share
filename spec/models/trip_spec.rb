@@ -102,13 +102,13 @@ RSpec.describe Trip do
     end
 
     it "will return the station with the most start trips" do
-      Station.create(name: "Union", city_id: 1, dock_count: 5, installation_date: "Mon, 06 May 2013")
       Station.create(name: "Penn", city_id: 1, dock_count: 5, installation_date: "Mon, 06 May 2013")
+      Station.create(name: "Union", city_id: 1, dock_count: 5, installation_date: "Mon, 06 May 2013")
       StartStation.create(station_id: 1)
       StartStation.create(station_id: 2)
-      trip = Trip.create(duration: 35, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 3, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
+      trip = Trip.create(duration: 35, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
       trip_2 = Trip.create(duration: 1175, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Union', start_station_id: 2, end_station_name: 'Penn', end_station_id: 1, bike_id: 2, subscription_type: 'Customer', zip_code: '90210')
-      trip_3 = Trip.create(duration: 235, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 3, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
+      trip_3 = Trip.create(duration: 235, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 2, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
 
       result = Trip.station_with_most_start_trips
 
@@ -131,8 +131,8 @@ RSpec.describe Trip do
       yearly_breakdown = Trip.yearly_rides_breakdown(2013)
 
       expect(yearly_breakdown).to eq(2)
-    end
 
+    end
     it "will return the most ridden bike and least ridden bike for all trips" do
       trip = Trip.create(duration: 35, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 3, bike_id: 7, subscription_type: 'Customer', zip_code: '90210')
       trip_2 = Trip.create(duration: 1175, start_date: 'Mon, 06 May 2013', end_date: 'Mon, 06 May 2013', start_station_name: 'Penn', start_station_id: 1, end_station_name: 'Union', end_station_id: 3, bike_id: 2, subscription_type: 'Subscriber', zip_code: '90210')
